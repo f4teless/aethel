@@ -1,70 +1,114 @@
-# fated
+# ⚔️ Fated
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines SvelteKit, Hono, ORPC, and more.
+**Fated** is a gamified, story-driven coding RPG where players fight enemies by solving coding challenges. It blends dynamic code-based combat with AI-generated storytelling, letting players pick coding-based classes, explore branching narratives, dive into dungeons, and duel in real-time PvP solve-offs.
+
+> _“The thief blocks your path with an encrypted sigil — solve this or lose his trail.”_
 
 ## Features
 
-- **TypeScript** - For type safety and improved developer experience
-- **SvelteKit** - Web framework for building Svelte apps
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Hono** - Lightweight, performant server framework
-- **oRPC** - End-to-end type-safe APIs with OpenAPI integration
-- **workers** - Runtime environment
-- **Drizzle** - TypeScript-first ORM
-- **PostgreSQL** - Database engine
-- **Authentication** - Email & password authentication with Better Auth
-- **Turborepo** - Optimized monorepo build system
-- **Biome** - Linting and formatting
-- **Husky** - Git hooks for code quality
+- **AI-Driven Narrative** with GPT-4o generated branching storylines.
+- **Code-Based Combat** where you solve problems to attack, progress, or unlock paths.
+- **Class System** with five domain-driven archetypes:
+  - 🛡️ **Array Knight** — Arrays, Strings, Sliding Window  
+  - 🔮 **Dynamic Mage** — Dynamic Programming, Recursion  
+  - 🕷️ **Graph Assassin** — Graphs, BFS/DFS  
+  - 🔥 **Greedy Ronin** — Greedy, Sorting, Math  
+  - 🧩 **Bit Sage** — Bitmasking, Binary Tricks  
+- **Gameplay Modes**:
+  - 🧠 **Story Mode** — AI-narrative with embedded coding events.
+  - 🏯 **Dungeons** — Optional themed challenges for loot and XP.
+  - ⚔️ **PvP Battles** — Real-time code duels with modifiers and leaderboards.
+- **Dynamic Monaco Editor** for solving problems directly inside the scene.
+- **Progression System** that unlocks passives, perks, and efficiencies per class.
 
-## Getting Started
+## Core Gameplay Loop
 
-First, install the dependencies:
+1. **Narration** — AI-generated event appears.
+2. **Challenge** — A coding puzzle triggers.
+3. **Solve** — Code is submitted through the Monaco editor.
+4. **Outcome** — Success or failure branches the story.
+5. **Repeat** — Continue narrative or choose PvP/Dungeons.
 
-```bash
-pnpm install
-```
-## Database Setup
+## Tech Stack
 
-This project uses PostgreSQL with Drizzle ORM.
-
-1. Make sure you have a PostgreSQL database set up.
-2. Update your `apps/server/.env` file with your PostgreSQL connection details.
-
-3. Apply the schema to your database:
-```bash
-pnpm db:push
-```
-
-
-Then, run the development server:
-
-```bash
-pnpm dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser to see the web application.
-The API is running at [http://localhost:3000](http://localhost:3000).
-
-
+- **Frontend**: SvelteKit, TailwindCSS, GSAP, shadcn/ui
+- **Editor**: Monaco
+- **Backend**: Hono, oRPC
+- **Database**: PostgreSQL (via Neon)
+- **ORM**: Drizzle
+- **AI**: Gemini 2.5 PRO
+- **Authentication**: Better-Auth (email/password)
+- **Analytics**: Vercel, Posthog
+- **Hosting**: Vercel (frontend), Cloudflare Workers (backend)
+- **Optional**: Chroma/Weaviate for personalization memory
 
 ## Project Structure
 
 ```
+
 fated/
 ├── apps/
-│   ├── web/         # Frontend application (SvelteKit)
-│   └── server/      # Backend API (Hono, ORPC)
+│   ├── web/         # Frontend (SvelteKit)
+│   └── server/      # Backend (Hono + oRPC)
+
+````
+
+## Setup Instructions
+
+### Install & Start
+
+```bash
+pnpm install
+pnpm dev
+````
+
+Access the project at:
+
+* Frontend: [http://localhost:5173](http://localhost:5173)
+* Backend: [http://localhost:3000](http://localhost:3000)
+
+### Database Setup
+
+1. Ensure PostgreSQL is running and `.env` is configured:
+2. Run:
+
+```bash
+pnpm db:push
+pnpm db:studio
 ```
 
-## Available Scripts
+### Development Utilities
 
-- `pnpm dev`: Start all applications in development mode
-- `pnpm build`: Build all applications
-- `pnpm dev:web`: Start only the web application
-- `pnpm dev:server`: Start only the server
-- `pnpm check-types`: Check TypeScript types across all apps
-- `pnpm db:push`: Push schema changes to database
-- `pnpm db:studio`: Open database studio UI
-- `pnpm check`: Run Biome formatting and linting
+```bash
+# Lint and format
+pnpm check
+
+# Type checking
+pnpm check-types
+
+# Update dependencies
+pnpm dlx taze -r
+```
+
+### Deployment
+
+```bash
+cd apps/web && pnpm deploy
+```
+
+## Useful Commands
+
+| Command            | Description                |
+| ------------------ | -------------------------- |
+| `pnpm dev`         | Start full dev environment |
+| `pnpm build`       | Build all apps             |
+| `pnpm dev:web`     | Start only frontend        |
+| `pnpm dev:server`  | Start only backend         |
+| `pnpm db:push`     | Apply DB schema            |
+| `pnpm db:studio`   | Open DB UI                 |
+| `pnpm check`       | Format + lint              |
+| `pnpm check-types` | Type check everything      |
+
+## License
+
+Licensed under the Elastic License. See [LICENSE](./LICENSE) for details.
