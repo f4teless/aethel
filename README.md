@@ -1,6 +1,6 @@
-# ⚔️ Fated
+# ⚔️ Aethel
 
-**Fated** is a gamified, story-driven coding RPG where players fight enemies by solving coding challenges. It blends dynamic code-based combat with AI-generated storytelling, letting players pick coding-based classes, explore branching narratives, dive into dungeons, and duel in real-time PvP solve-offs.
+**Aethel** is a gamified, story-driven coding RPG where players fight enemies by solving coding challenges. It blends dynamic code-based combat with AI-generated storytelling, letting players pick coding-based classes, explore branching narratives, dive into dungeons, and duel in real-time PvP solve-offs.
 
 > _“The thief blocks your path with an encrypted sigil — solve this or lose his trail.”_
 
@@ -46,7 +46,7 @@
 
 ```
 
-fated/
+aethel/
 ├── apps/
 │   ├── web/         # Frontend (SvelteKit)
 │   └── server/      # Backend (Hono + oRPC)

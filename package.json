@@ -1,5 +1,5 @@
 {
-  "name": "fated",
+  "name": "aethel",
   "private": true,
   "workspaces": [
     "apps/*",

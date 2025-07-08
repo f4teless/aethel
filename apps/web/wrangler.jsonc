@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "../../node_modules/wrangler/config-schema.json",
-	"name": "fated",
+	"name": "aethel",
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"compatibility_date": "2025-07-05",
 	"assets": {
