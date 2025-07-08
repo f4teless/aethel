@@ -1,5 +1,81 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 body {
-    @apply bg-neutral-950 text-neutral-100;
+    @apply text-black;
+}
+
+@font-face {  
+  font-family: "Cinzel Decorative";  
+  font-style: normal;
+  font-display: swap;  
+  src: url("/fonts/CinzelDecorative-Regular.ttf") 
+  format("truetype");
+}
+
+@font-face {  
+  font-family: "Cormorant Garamond Italic";  
+  font-style: italic;
+  font-display: swap;  
+  src: url("/fonts/CormorantGaramond-Italic-VariableFont_wght.ttf") 
+  format("truetype");
+}
+
+@font-face {  
+  font-family: "Cormorant Garamond";  
+  font-style: normal;
+  font-display: swap;  
+  src: url("/fonts/CormorantGaramond-VariableFont_wght.ttf") 
+  format("truetype");
+}
+
+@font-face {  
+  font-family: "Medieval Sharp";  
+  font-style: normal;
+  font-display: swap;  
+  src: url("/fonts/MedievalSharp-Regular.ttf") 
+  format("truetype");
+}
+
+@font-face {  
+  font-family: "Manrope";  
+  font-style: normal;
+  font-display: swap;  
+  src: url("/fonts/Manrope-VariableFont_wght.ttf") 
+  format("truetype");
+}
+
+@font-face {  
+  font-family: "EBGaramond Italic";  
+  font-style: italic;
+  font-display: swap;  
+  src: url("/fonts/EBGaramond-Italic-VariableFont_wght.ttf") 
+  format("truetype");
+}
+
+@font-face {  
+  font-family: "EBGaramond";  
+  font-style: normal;
+  font-display: swap;  
+  src: url("/fonts/EBGaramond-VariableFont_wght.ttf") 
+  format("truetype");
+}
+
+@font-face {  
+  font-family: "IMFellEnglishSC";  
+  font-style: normal;
+  font-display: swap;  
+  src: url("/fonts/IMFellEnglishSC-Regular.ttf") 
+  format("truetype");
+}
+
+@theme {
+    --font-cinzel: "Cinzel Decorative";
+    --font-medieval: "Medieval Sharp";
+    --font-cormorant: "Cormorant Garamond";
+    --font-cormorantI: "Cormorant Garamond Italic";
+    --font-manrope: "Manrope";
+    --font-ebgi: "EBGaramond Italic";
+    --font-ebg: "EBGaramond";
+    --font-imfell: "IMFellEnglishSC";
 }
