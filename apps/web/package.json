@@ -1,41 +1,41 @@
 {
-  "name": "web",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "prepare": "svelte-kit sync || echo ''",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "deploy": "pnpm run build && wrangler deploy",
-    "cf-typegen": "wrangler types ./src/worker-configuration.d.ts"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "^6.0.0",
-    "@sveltejs/adapter-cloudflare": "^7.0.4",
-    "@sveltejs/kit": "^2.20.7",
-    "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.4",
-    "@tanstack/svelte-query-devtools": "^5.74.6",
-    "svelte": "^5.28.2",
-    "svelte-check": "^4.1.6",
-    "tailwindcss": "^4.1.4",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.2",
-    "wrangler": "^4.23.0"
-  },
-  "dependencies": {
-    "@orpc/client": "^1.5.0",
-    "@orpc/server": "^1.5.0",
-    "@orpc/tanstack-query": "^1.5.0",
-    "@tanstack/svelte-form": "^1.7.0",
-    "@tanstack/svelte-query": "^5.74.4",
-    "better-auth": "^1.2.10",
-    "gsap": "^3.13.0",
-    "zod": "^3.25.16"
-  }
+	"name": "web",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"deploy": "pnpm run build && wrangler deploy",
+		"cf-typegen": "wrangler types ./src/worker-configuration.d.ts"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^6.0.0",
+		"@sveltejs/adapter-cloudflare": "^7.0.4",
+		"@sveltejs/kit": "^2.20.7",
+		"@sveltejs/vite-plugin-svelte": "^5.0.3",
+		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/vite": "^4.1.4",
+		"@tanstack/svelte-query-devtools": "^5.74.6",
+		"svelte": "^5.28.2",
+		"svelte-check": "^4.1.6",
+		"tailwindcss": "^4.1.4",
+		"typescript": "^5.8.3",
+		"vite": "^7.0.2",
+		"wrangler": "^4.23.0"
+	},
+	"dependencies": {
+		"@orpc/client": "^1.5.0",
+		"@orpc/server": "^1.5.0",
+		"@orpc/tanstack-query": "^1.5.0",
+		"@tanstack/svelte-form": "^1.7.0",
+		"@tanstack/svelte-query": "^5.74.4",
+		"better-auth": "^1.2.10",
+		"gsap": "^3.13.0",
+		"zod": "^3.25.16"
+	}
 }

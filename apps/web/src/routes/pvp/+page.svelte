@@ -1,27 +1,27 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import gsap from "gsap";
-  import { backgroundImage } from "$lib/stores/uiStore";
+import { backgroundImage } from "$lib/stores/uiStore";
+import gsap from "gsap";
+import { onMount } from "svelte";
 
-  onMount(() => {
-    gsap.from(".pvp-container", {
-      y: 50,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power2.out"
-    });
+onMount(() => {
+	gsap.from(".pvp-container", {
+		y: 50,
+		opacity: 0,
+		duration: 1.2,
+		ease: "power2.out",
+	});
 
-    gsap.from(".swords", {
-      scale: 0.5,
-      opacity: 0,
-      rotate: -30,
-      duration: 1.2,
-      ease: "back.out(1.7)",
-      delay: 0.3
-    });
+	gsap.from(".swords", {
+		scale: 0.5,
+		opacity: 0,
+		rotate: -30,
+		duration: 1.2,
+		ease: "back.out(1.7)",
+		delay: 0.3,
+	});
 
-    backgroundImage.set("url('/icons/bg3.jpg')");
-  });
+	backgroundImage.set("url('/icons/bg3.jpg')");
+});
 </script>
 
 <div class="bg-[url('/img/bg1.jpg')] bg-cover bg-center min-h-screen text-white relative overflow-hidden">

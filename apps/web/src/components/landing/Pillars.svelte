@@ -1,8 +1,8 @@
 <script lang="ts">
-  // Icons can be simple SVGs or imported components
-  // import BrainIcon from '/icons/BrainIcon.svg';
-  // import CodeIcon from '/icons/CodeIcon.svg?component';
-  // import CommunityIcon from '/icons/CommunityIcon.svg?component';
+// Icons can be simple SVGs or imported components
+// import BrainIcon from '/icons/BrainIcon.svg';
+// import CodeIcon from '/icons/CodeIcon.svg?component';
+// import CommunityIcon from '/icons/CommunityIcon.svg?component';
 </script>
 
 <div class="py-20 md:py-32">

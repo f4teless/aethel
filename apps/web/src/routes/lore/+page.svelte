@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { backgroundImage } from '$lib/stores/uiStore';
+import { backgroundImage } from "$lib/stores/uiStore";
+import { onMount } from "svelte";
 
-  // Set 'unraveling' as the default tab to highlight this new lore
-  let activeTab = $state('unraveling');
+// Set 'unraveling' as the default tab to highlight this new lore
+let activeTab = $state("unraveling");
 
-  onMount(() => {
-    backgroundImage.set("url('/icons/lore-library.jpeg')");
-  });
+onMount(() => {
+	backgroundImage.set("url('/icons/lore-library.jpeg')");
+});
 </script>
 
 <div class="container mx-auto px-4 sm:px-6 py-16 md:py-24 text-white">
@@ -28,7 +28,7 @@
     
     <button 
       class={`transition ${activeTab === 'world' ? 'text-white' : 'text-white/60'}`} 
-      on:click={() => activeTab = 'world'}
+      onclick={() => activeTab = 'world'}
     >
       The World
     </button>
@@ -36,7 +36,7 @@
 
     <button 
       class={`transition ${activeTab === 'unraveling' ? 'text-white' : 'text-white/60'}`} 
-      on:click={() => activeTab = 'unraveling'}
+      onclick={() => activeTab = 'unraveling'}
     >
       The Great Unraveling
     </button>
@@ -44,7 +44,7 @@
 
     <button 
       class={`transition ${activeTab === 'corruption' ? 'text-white' : 'text-white/60'}`} 
-      on:click={() => activeTab = 'corruption'}
+      onclick={() => activeTab = 'corruption'}
     >
       The Code Corruption
     </button>
@@ -52,7 +52,7 @@
 
     <button 
       class={`transition ${activeTab === 'architects' ? 'text-white' : 'text-white/60'}`} 
-      on:click={() => activeTab = 'architects'}
+      onclick={() => activeTab = 'architects'}
     >
       The Architects
     </button>

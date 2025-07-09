@@ -1,48 +1,48 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { backgroundImage } from '$lib/stores/uiStore'; // Assuming you have a store to set the page background
+import { backgroundImage } from "$lib/stores/uiStore"; // Assuming you have a store to set the page background
+import { onMount } from "svelte";
 
-  // Countdown timer state
-  let days = $state(0);
-  let hours = $state(0);
-  let minutes = $state(0);
-  let seconds = $state(0);
+// Countdown timer state
+let days = $state(0);
+let hours = $state(0);
+let minutes = $state(0);
+let seconds = $state(0);
 
-  function calculateCountdown() {
-    // Set a fictional, epic-sounding launch date
-    const launchDate = new Date('2025-12-25T00:00:00Z').getTime();
-    const now = new Date().getTime();
-    const distance = launchDate - now;
+function calculateCountdown() {
+	// Set a fictional, epic-sounding launch date
+	const launchDate = new Date("2025-12-25T00:00:00Z").getTime();
+	const now = new Date().getTime();
+	const distance = launchDate - now;
 
-    if (distance < 0) {
-      // Handle case where countdown is over
-      days = 0;
-      hours = 0;
-      minutes = 0;
-      seconds = 0;
-      return;
-    }
+	if (distance < 0) {
+		// Handle case where countdown is over
+		days = 0;
+		hours = 0;
+		minutes = 0;
+		seconds = 0;
+		return;
+	}
 
-    days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  }
+	days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	seconds = Math.floor((distance % (1000 * 60)) / 1000);
+}
 
-  onMount(() => {
-    // Set a dramatic background image for this page
-    // backgroundImage.set("url('/img/bg2.jpg')"); // Make sure to have a suitable image
+onMount(() => {
+	// Set a dramatic background image for this page
+	// backgroundImage.set("url('/img/bg2.jpg')"); // Make sure to have a suitable image
 
-    // Initialize and update the countdown every second
-    calculateCountdown();
-    const timer = setInterval(calculateCountdown, 1000);
+	// Initialize and update the countdown every second
+	calculateCountdown();
+	const timer = setInterval(calculateCountdown, 1000);
 
-    return () => {
-      clearInterval(timer);
-      // Optional: Reset background when leaving the page
-      // backgroundImage.set("url('/img/default-bg.jpg')"); 
-    };
-  });
+	return () => {
+		clearInterval(timer);
+		// Optional: Reset background when leaving the page
+		// backgroundImage.set("url('/img/default-bg.jpg')");
+	};
+});
 </script>
 
 <!-- Main Container -->

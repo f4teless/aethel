@@ -1,34 +1,34 @@
 <script lang="ts">
-  import { createForm } from '@tanstack/svelte-form';
-  import z from 'zod/v4';
-  import { authClient } from '$lib/auth-client';
-  import { goto } from '$app/navigation';
-  import FormField from './FormField.svelte';
+import { goto } from "$app/navigation";
+import { authClient } from "$lib/auth-client";
+import { createForm } from "@tanstack/svelte-form";
+import z from "zod/v4";
+import FormField from "./FormField.svelte";
 
-  // IMPROVEMENT: Add a state for API errors
-  let apiError = $state<string | null>(null);
+// IMPROVEMENT: Add a state for API errors
+let apiError = $state<string | null>(null);
 
-  const validationSchema = z.object({
-    email: z.email('Invalid email address'),
-    password: z.string().min(1, 'Password is required'),
-  });
+const validationSchema = z.object({
+	email: z.email("Invalid email address"),
+	password: z.string().min(1, "Password is required"),
+});
 
-  const form = createForm(() => ({
-    defaultValues: { email: '', password: '' },
-    onSubmit: async ({ value }) => {
-      apiError = null;
-      await authClient.signIn.email(
-        { email: value.email, password: value.password },
-        {
-          onSuccess: () => goto('/dashboard'),
-          onError: (error) => {
-            apiError = error.error.message || 'Sign in failed. Please try again.';
-          },
-        }
-      );
-    },
-    validators: { onSubmit: validationSchema },
-  }));
+const form = createForm(() => ({
+	defaultValues: { email: "", password: "" },
+	onSubmit: async ({ value }) => {
+		apiError = null;
+		await authClient.signIn.email(
+			{ email: value.email, password: value.password },
+			{
+				onSuccess: () => goto("/dashboard"),
+				onError: (error) => {
+					apiError = error.error.message || "Sign in failed. Please try again.";
+				},
+			},
+		);
+	},
+	validators: { onSubmit: validationSchema },
+}));
 </script>
 
 <form

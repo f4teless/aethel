@@ -1,17 +1,16 @@
 <script>
-  import { page } from '$app/stores'; // SvelteKit's store for page data
-  import { onMount } from 'svelte';
+import { page } from "$app/state"; // SvelteKit's store for page data
 
-  export let transparent = true;
-  
-  let mobileMenuOpen = false;
-  
-  let user = null; 
+export const transparent = true;
 
-  // Close mobile menu on navigationabsolute
-  $: if ($page.url.pathname) {
-    mobileMenuOpen = false;
-  }
+let mobileMenuOpen = false;
+
+const user = null;
+
+// Close mobile menu on navigationabsolute
+$: if (page.url.pathname) {
+	mobileMenuOpen = false;
+}
 </script>
 
 <!-- The w-full class is moved to a container div to handle sticky positioning correctly -->
@@ -27,9 +26,9 @@
     <!-- Desktop Navigation -->
     <nav class="space-x-6 hidden md:block text-slate-300 font-medium">
       <!-- IMPROVEMENT 3: Active Link Styling -->
-      <a href="/lore" class="hover:text-white transition" class:text-white={$page.url.pathname === '/lore'}>Lore</a>
-      <a href="/about" class="hover:text-white transition" class:text-white={$page.url.pathname === '/about'}>Community</a>
-      <a href="/pvp" class="hover:text-white transition" class:text-white={$page.url.pathname === '/pvp'}>PVP</a>
+      <a href="/lore" class="hover:text-white transition" class:text-white={page.url.pathname === '/lore'}>Lore</a>
+      <a href="/about" class="hover:text-white transition" class:text-white={page.url.pathname === '/about'}>Community</a>
+      <a href="/pvp" class="hover:text-white transition" class:text-white={page.url.pathname === '/pvp'}>PVP</a>
     </nav>
 
     <!-- Right Side: Auth State & Mobile Menu Toggle -->

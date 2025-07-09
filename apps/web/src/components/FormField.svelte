@@ -3,7 +3,27 @@
 import type { Field } from "@tanstack/svelte-form";
 
 type Props = {
-	field: Field<any, any, any, any>;
+	field: Field<
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any,
+		any
+	>;
 	label: string;
 	type?: "text" | "email" | "password";
 };
@@ -11,7 +31,7 @@ type Props = {
 const { field, label, type = "text" }: Props = $props();
 
 // IMPROVEMENT: State for password visibility toggle
-  let showPassword = $state(false);
+let showPassword = $state(false);
 const isPassword = $derived(type === "password");
 </script>
 

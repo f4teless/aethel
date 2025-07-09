@@ -1,40 +1,39 @@
 <script lang="ts">
-  import { createForm } from '@tanstack/svelte-form';
-  import z from 'zod/v4';
-  import { authClient } from '$lib/auth-client';
-  import { goto } from '$app/navigation';
-  import FormField from './FormField.svelte';
+import { goto } from "$app/navigation";
+import { authClient } from "$lib/auth-client";
+import { createForm } from "@tanstack/svelte-form";
+import z from "zod/v4";
+import FormField from "./FormField.svelte";
 
-  // IMPROVEMENT: Add a state for API errors
-  let apiError = $state<string | null>(null);
+// IMPROVEMENT: Add a state for API errors
+let apiError = $state<string | null>(null);
 
+const validationSchema = z.object({
+	name: z.string().min(2, "Name must be at least 2 characters"),
+	email: z.email("Invalid email address"),
+	password: z.string().min(8, "Password must be at least 8 characters"),
+});
 
-  const validationSchema = z.object({
-    name: z.string().min(2, 'Name must be at least 2 characters'),
-    email: z.email('Invalid email address'),
-    password: z.string().min(8, 'Password must be at least 8 characters'),
-  });
-
-  const form = createForm(() => ({
-    defaultValues: { name: '', email: '', password: '' },
-    onSubmit: async ({ value }) => {
-      apiError = null;
-      await authClient.signUp.email(
-        {
-          email: value.email,
-          password: value.password,
-          name: value.name,
-        },
-        {
-          onSuccess: () => goto('/dashboard'),
-          onError: (error) => {
-            apiError = error.error.message || 'Sign up failed. Please try again.';
-          },
-        }
-      );
-    },
-    validators: { onSubmit: validationSchema },
-  }));
+const form = createForm(() => ({
+	defaultValues: { name: "", email: "", password: "" },
+	onSubmit: async ({ value }) => {
+		apiError = null;
+		await authClient.signUp.email(
+			{
+				email: value.email,
+				password: value.password,
+				name: value.name,
+			},
+			{
+				onSuccess: () => goto("/dashboard"),
+				onError: (error) => {
+					apiError = error.error.message || "Sign up failed. Please try again.";
+				},
+			},
+		);
+	},
+	validators: { onSubmit: validationSchema },
+}));
 </script>
 
 <form

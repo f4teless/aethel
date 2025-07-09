@@ -1,13 +1,13 @@
 <!-- src/routes/+layout.svelte -->
 <script lang="ts">
-  import { QueryClientProvider } from "@tanstack/svelte-query";
-  import { SvelteQueryDevtools } from "@tanstack/svelte-query-devtools";
-  import "../app.css";
-  import { queryClient } from "$lib/orpc";
-  import Header from "../components/Header.svelte";
-  import { backgroundImage } from "$lib/stores/uiStore";
+import { QueryClientProvider } from "@tanstack/svelte-query";
+import { SvelteQueryDevtools } from "@tanstack/svelte-query-devtools";
+import "../app.css";
+import { queryClient } from "$lib/orpc";
+import { backgroundImage } from "$lib/stores/uiStore";
+import Header from "../components/Header.svelte";
 
-  let { children } = $props();
+const { children } = $props();
 </script>
 
 <QueryClientProvider client={queryClient}>
