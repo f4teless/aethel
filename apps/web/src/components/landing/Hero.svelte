@@ -14,7 +14,7 @@ const loreIntro =
 	selected.lore || "A world once governed by logic... now broken.";
 
 onMount(() => {
-	backgroundImage.set("url('/img/bg2.jpg')");
+	backgroundImage.set("url('/icons/bg2.jpg')");
 });
 </script>
 

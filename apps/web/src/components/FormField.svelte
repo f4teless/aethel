@@ -11,7 +11,7 @@ type Props = {
 const { field, label, type = "text" }: Props = $props();
 
 // IMPROVEMENT: State for password visibility toggle
-const showPassword = $state(false);
+  let showPassword = $state(false);
 const isPassword = $derived(type === "password");
 </script>
 

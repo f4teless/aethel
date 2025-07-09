@@ -4,14 +4,11 @@
 
   export let transparent = true;
   
-  // --- IMPROVEMENT 1: State for Mobile Menu ---
   let mobileMenuOpen = false;
+  
+  let user = null; 
 
-  // --- IMPROVEMENT 2: Placeholder for User State ---
-  // In a real app, this would come from a store: `import { user } from '$lib/stores/authStore';`
-  let user = null; // or { name: 'Architect', avatar: '/img/avatar.png' }
-
-  // Close mobile menu on navigation
+  // Close mobile menu on navigationabsolute
   $: if ($page.url.pathname) {
     mobileMenuOpen = false;
   }
@@ -19,7 +16,7 @@
 
 <!-- The w-full class is moved to a container div to handle sticky positioning correctly -->
 <div class={`w-full z-20 transition-colors duration-300
-  ${transparent && !mobileMenuOpen ? 'absolute top-0 left-0' : 'bg-slate-900/80 backdrop-blur-lg sticky top-0 shadow-xl'}
+  ${transparent && !mobileMenuOpen ? 'sticky top-0 left-0' : 'bg-slate-900/80 backdrop-blur-lg sticky top-0 shadow-xl'}
 `}>
   <header class="px-6 md:px-12 py-4 flex justify-between items-center font-cinzel uppercase tracking-wider text-white text-sm">
     <!-- Logo -->
@@ -30,9 +27,8 @@
     <!-- Desktop Navigation -->
     <nav class="space-x-6 hidden md:block text-slate-300 font-medium">
       <!-- IMPROVEMENT 3: Active Link Styling -->
-      <a href="/start" class="hover:text-white transition" class:text-white={$page.url.pathname === '/start'}>Start</a>
       <a href="/lore" class="hover:text-white transition" class:text-white={$page.url.pathname === '/lore'}>Lore</a>
-      <a href="/quests" class="hover:text-white transition" class:text-white={$page.url.pathname === '/quests'}>Quests</a>
+      <a href="/about" class="hover:text-white transition" class:text-white={$page.url.pathname === '/about'}>Community</a>
       <a href="/pvp" class="hover:text-white transition" class:text-white={$page.url.pathname === '/pvp'}>PVP</a>
     </nav>
 

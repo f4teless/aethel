@@ -2,7 +2,7 @@
 <script lang="ts">
   import SignInForm from "../../components/SignInForm.svelte";
   import SignUpForm from "../../components/SignUpForm.svelte";
-  import { reducedMotion } from '$lib/stores/uiStore';
+  import { backgroundImage, reducedMotion } from '$lib/stores/uiStore';
   import { onMount, onDestroy } from "svelte";
   import gsap from "gsap";
 
@@ -184,19 +184,18 @@
   onDestroy(() => {
     // Clean up event listeners to prevent memory leaks
     window.removeEventListener('mousemove', onMouseMove);
-    motionQuery.removeEventListener('change', motionListener);
+    // motionQuery.removeEventListener('change', motionListener);
   });
+
+  $effect(() => {
+    $: backgroundImage.set(showSignIn ? "url('/icons/bg4.jpg')" : "url('/icons/bg1.jpg')");
+  })
 </script>
 
 <!-- The background now uses a dynamic image based on the view -->
 <div
-  class="bg-cover bg-center min-h-screen relative text-white transition-all duration-500 overflow-hidden"
-  style:background-image={showSignIn
-    ? "url('/img/bg4.jpg')"
-    : "url('/img/bg1.jpg')"}
->
-  <!-- Background Overlay -->
-  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+  class="min-h-screen relative text-white transition-all duration-500 overflow-hidden"
+  >
 
   <!-- AURA: Follows the cursor -->
   <div bind:this={cursorAura} id="cursor-aura"></div>

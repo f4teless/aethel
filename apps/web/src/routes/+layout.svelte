@@ -6,8 +6,6 @@
   import { queryClient } from "$lib/orpc";
   import Header from "../components/Header.svelte";
   import { backgroundImage } from "$lib/stores/uiStore";
-  import { fade } from "svelte/transition";
-  import { page } from "$app/stores";
 
   let { children } = $props();
 </script>
