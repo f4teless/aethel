@@ -1,6 +1,8 @@
 <script lang="ts">
 import { backgroundImage } from "$lib/stores/uiStore"; // Assuming you have a store to set the page background
 import { onMount } from "svelte";
+import bg2 from "$lib/assets/icons/bg2.webp";
+import defaultBg from "$lib/assets/icons/bg1.webp";
 
 // Countdown timer state
 let days = $state(0);
@@ -31,7 +33,7 @@ function calculateCountdown() {
 
 onMount(() => {
 	// Set a dramatic background image for this page
-	// backgroundImage.set("url('/img/bg2.jpg')"); // Make sure to have a suitable image
+	backgroundImage.set(`url(${bg2})`); // Make sure to have a suitable image
 
 	// Initialize and update the countdown every second
 	calculateCountdown();
@@ -40,7 +42,7 @@ onMount(() => {
 	return () => {
 		clearInterval(timer);
 		// Optional: Reset background when leaving the page
-		// backgroundImage.set("url('/img/default-bg.jpg')");
+		backgroundImage.set(`url(${defaultBg})`);
 	};
 });
 </script>

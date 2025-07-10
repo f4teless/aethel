@@ -2,6 +2,8 @@
 import { backgroundImage } from "$lib/stores/uiStore";
 import gsap from "gsap";
 import { onMount } from "svelte";
+import bg3 from "$lib/assets/icons/bg3.webp";
+
 
 onMount(() => {
 	gsap.from(".pvp-container", {
@@ -20,11 +22,11 @@ onMount(() => {
 		delay: 0.3,
 	});
 
-	backgroundImage.set("url('/icons/bg3.jpg')");
+	backgroundImage.set(`url(${bg3})`);
 });
 </script>
 
-<div class="bg-[url('/img/bg1.jpg')] bg-cover bg-center min-h-screen text-white relative overflow-hidden">
+<div class="min-h-screen text-white relative overflow-hidden">
 
   <div class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 pvp-container">
     <!-- Icon or visual flair -->

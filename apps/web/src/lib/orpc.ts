@@ -15,7 +15,7 @@ export const queryClient = new QueryClient({
 });
 
 export const link = new RPCLink({
-	url: `${PUBLIC_SERVER_URL}/rpc`,
+	url: "https://aethel-server.dashing4149.workers.dev//rpc",
 	fetch(url, options) {
 		return fetch(url, {
 			...options,

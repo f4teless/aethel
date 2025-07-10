@@ -38,7 +38,7 @@ $: if (page.url.pathname) {
         {#if user}
           <a href="/profile" class="flex items-center space-x-2 group">
             <span class="font-ebg normal-case group-hover:text-white text-slate-300">{user.name}</span>
-            <img src={user.avatar} alt="User Avatar" class="w-8 h-8 rounded-full border-2 border-slate-500 group-hover:border-white transition"/>
+            <enhanced:img src={user.avatar} alt="User Avatar" class="w-8 h-8 rounded-full border-2 border-slate-500 group-hover:border-white transition"/>
           </a>
         {:else}
           <a 

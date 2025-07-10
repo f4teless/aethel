@@ -1,9 +1,10 @@
 <script lang="ts">
-// Icons can be simple SVGs or imported components
-// import BrainIcon from '/icons/BrainIcon.svg';
-// import CodeIcon from '/icons/CodeIcon.svg?component';
-// import CommunityIcon from '/icons/CommunityIcon.svg?component';
+  import BrainIcon from "$lib/assets/icons/BrainIcon.svg";
+  import CodeIcon from "$lib/assets/icons/CodeIcon.svg";
+  import CommunityIcon from "$lib/assets/icons/CommunityIcon.svg";
 </script>
+
+<svelte:options namespace="html" />
 
 <div class="py-20 md:py-32">
   <div class="container mx-auto px-6 text-center">
@@ -18,8 +19,7 @@
       <!-- Pillar 1: AI Story -->
       <div class="bg-black/20 p-8 rounded-lg border border-white/10 backdrop-blur-md shadow-xl hover:-translate-y-2 transition-transform duration-300">
         <div class="h-16 w-16 mx-auto mb-4 text-slate-400 flex items-center justify-center">
-          <!-- <BrainIcon /> -->
-          <img src="/icons/BrainIcon.svg" alt="Brain Icon" class="object-fit" />
+          <img src={BrainIcon} alt="Brain Icon" class="object-fit" />
         </div>
         <h3 class="font-cinzel text-2xl text-white font-semibold">Narrative-Driven</h3>
         <p class="text-white/70 mt-2 font-ebg">
@@ -30,8 +30,7 @@
       <!-- Pillar 2: Code Combat -->
       <div class="bg-black/20 p-8 rounded-lg border border-white/10 backdrop-blur-md shadow-xl hover:-translate-y-2 transition-transform duration-300">
         <div class="h-16 w-16 mx-auto mb-4 text-slate-400 flex items-center justify-center">
-          <!-- <CodeIcon /> -->
-           <img src="/icons/CodeIcon.svg" alt="code-icon" class="object-fit"/>
+          <img src={CodeIcon} alt="code-icon" class="object-fit"/>
         </div>
         <h3 class="font-cinzel text-2xl text-white font-semibold">Code is Combat</h3>
         <p class="text-white/70 mt-2 font-ebg">
@@ -42,8 +41,7 @@
       <!-- Pillar 3: Community -->
       <div class="bg-black/20 p-8 rounded-lg border border-white/10 backdrop-blur-md shadow-xl hover:-translate-y-2 transition-transform duration-300">
         <div class="h-16 w-16 mx-auto mb-4 text-slate-400 flex items-center justify-center">
-          <!-- <CommunityIcon /> -->
-           <img src="/icons/CommunityIcon.svg" alt="community-icon" class="object-fit"/>
+          <img src={CommunityIcon} alt="community-icon" class="object-fit"/>
         </div>
         <h3 class="font-cinzel text-2xl text-white font-semibold">Living World</h3>
         <p class="text-white/70 mt-2 font-ebg">

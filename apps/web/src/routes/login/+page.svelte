@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { onDestroy, onMount } from "svelte";
 import SignInForm from "../../components/SignInForm.svelte";
 import SignUpForm from "../../components/SignUpForm.svelte";
+import bg4 from "$lib/assets/icons/bg4.webp";
+import bg1 from "$lib/assets/icons/bg1.webp";
 
 let showSignIn = $state(true);
 const apiError = $state<string | null>(null);
@@ -222,7 +224,7 @@ onDestroy(() => {
 
 $effect(() => {
 	$: backgroundImage.set(
-		showSignIn ? "url('/icons/bg4.jpg')" : "url('/icons/bg1.jpg')",
+		showSignIn ? `url(${bg4})` : `url(${bg1})`,
 	);
 });
 </script>

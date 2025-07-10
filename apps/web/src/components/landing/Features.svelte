@@ -1,3 +1,11 @@
+<script lang="ts">
+  import featuresClasses from "$lib/assets/icons/feature-classes.jpg?enhanced";
+  import featuresDungeons from "$lib/assets/icons/feature-dungeons.jpg?enhanced";
+  import featuresPvp from "$lib/assets/icons/feature-pvp.jpg?enhanced";
+</script>
+
+<svelte:options namespace="html" />
+
 <div class="py-20 md:py-32 bg-slate-900 border-y border-white/10">
   <div class="container mx-auto px-6 text-center">
     <h2 class="font-cinzel text-4xl md:text-5xl text-white font-bold drop-shadow-lg">
@@ -10,7 +18,7 @@
     <div class="mt-16 grid lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
       <!-- Feature 1: Classes -->
       <div class="text-center">
-        <img src="/icons/feature-classes.jpg" alt="A mage casting a spell" class="rounded-lg shadow-xl border-2 border-slate-700 aspect-video object-cover">
+        <enhanced:img src={featuresClasses} alt="A mage casting a spell" class="rounded-lg shadow-xl border-2 border-slate-700 aspect-video object-cover" />
         <h3 class="font-cinzel text-3xl text-white mt-6">Master Your Class</h3>
         <p class="font-ebg text-white/70 mt-2">
           Don't pick a class—earn it. Your proficiency in solving problems defines you. Become an <span class="text-white font-semibold">Array Knight</span>, a <span class="text-white font-semibold">Graph Assassin</span>, or a <span class="text-white font-semibold">Dynamic Mage</span> and unlock unique passive abilities.
@@ -19,7 +27,7 @@
 
       <!-- Feature 2: Dungeons -->
       <div class="text-center">
-        <img src="/icons/feature-dungeons.jpg" alt="A group of adventurers at a dungeon entrance" class="rounded-lg shadow-xl border-2 border-slate-700 aspect-video object-cover">
+        <enhanced:img src={featuresDungeons} alt="A group of adventurers at a dungeon entrance" class="rounded-lg shadow-xl border-2 border-slate-700 aspect-video object-cover" />
         <h3 class="font-cinzel text-3xl text-white mt-6">Conquer Dungeons</h3>
         <p class="font-ebg text-white/70 mt-2">
           Team up with friends and descend into themed challenge zones like the <span class="text-white font-semibold">Stackspire</span> or the <span class="text-white font-semibold">Treegrave Wilds</span>. Solve co-op puzzles to earn exclusive loot and artifacts.
@@ -28,7 +36,7 @@
       
       <!-- Feature 3: PvP -->
       <div class="text-center">
-        <img src="/icons/feature-pvp.jpg" alt="Two figures facing off in an arena" class="rounded-lg shadow-xl border-2 border-slate-700 aspect-video object-cover">
+        <enhanced:img src={featuresPvp} alt="Two figures facing off in an arena" class="rounded-lg shadow-xl border-2 border-slate-700 aspect-video object-cover" />
         <h3 class="font-cinzel text-3xl text-white mt-6">Dominate the Arena</h3>
         <p class="font-ebg text-white/70 mt-2">
           Face off in real-time coding duels. Out-think and out-code your rivals to climb the <span class="text-white font-semibold">global leaderboards</span>. Only the fastest and most elegant solutions will claim victory.
