@@ -1,9 +1,9 @@
 <script lang="ts">
-  import worldImg from '$lib/assets/icons/lore-world.jpg?enhanced';
-  import unravelingImg from '$lib/assets/icons/lore-unraveling.jpg?enhanced';
-  import corruptionImg from '$lib/assets/icons/lore-corruption.jpg?enhanced';
-  import architectImg from '$lib/assets/icons/lore-architect.jpg?enhanced';
-  import loreLibrary from '$lib/assets/icons/lore-library.webp';
+  import worldImg from '$lib/assets/icons/lore/lore-world.webp?enhanced';
+  import unravelingImg from '$lib/assets/icons/lore/lore-unraveling.webp?enhanced';
+  import corruptionImg from '$lib/assets/icons/lore/lore-corruption.webp?enhanced';
+  import architectImg from '$lib/assets/icons/lore/lore-architect.webp?enhanced';
+  import loreLibrary from '$lib/assets/icons/lore/lore-library.webp';
 
   import { backgroundImage } from '$lib/stores/uiStore';
   import { onMount } from 'svelte';

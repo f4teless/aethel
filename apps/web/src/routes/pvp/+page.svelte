@@ -2,7 +2,7 @@
 import { backgroundImage } from "$lib/stores/uiStore";
 import gsap from "gsap";
 import { onMount } from "svelte";
-import bg3 from "$lib/assets/icons/bg3.webp";
+import bg3 from "$lib/assets/icons/pvp/bg3.webp";
 
 
 onMount(() => {
@@ -43,7 +43,7 @@ onMount(() => {
     <!-- Button (non-functional yet) -->
     <button
       disabled
-      class="text-white/70 bg-white/10 border border-white/30 px-6 py-2 rounded-xl font-bold font-cinzel tracking-wide cursor-not-allowed transition hover:bg-white/20 backdrop-blur"
+      class="text-white/70 bg-transparent border border-white/20 px-6 py-2 rounded-xl font-bold font-cinzel tracking-wide cursor-not-allowed transition hover:bg-current/20 backdrop-blur"
     >
       Coming Soon
     </button>

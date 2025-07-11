@@ -9,11 +9,13 @@ import Footer from "../components/landing/Footer.svelte";
 import GamePlay from "../components/landing/GamePlay.svelte";
 import Hero from "../components/landing/Hero.svelte";
 import Pillars from "../components/landing/Pillars.svelte";
+  import Features from "../components/landing/Features.svelte";
 </script>
 
 <div>
   <Hero />
   <Pillars />
+  <Features />
   <GamePlay />
   <FinalCta />
   <Footer />

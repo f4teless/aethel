@@ -5,8 +5,8 @@ import gsap from "gsap";
 import { onDestroy, onMount } from "svelte";
 import SignInForm from "../../components/SignInForm.svelte";
 import SignUpForm from "../../components/SignUpForm.svelte";
-import bg4 from "$lib/assets/icons/bg4.webp";
-import bg1 from "$lib/assets/icons/bg1.webp";
+import bg4 from "$lib/assets/icons/login/bg4.webp";
+import bg1 from "$lib/assets/icons/login/bg1.webp";
 
 let showSignIn = $state(true);
 const apiError = $state<string | null>(null);

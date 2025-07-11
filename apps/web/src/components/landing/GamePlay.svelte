@@ -27,7 +27,7 @@
         </div>
         
         <div class="mt-4 flex justify-end">
-          <button class="bg-blue-600/80 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md shadow-lg transition font-cinzel tracking-wider">
+          <button class="text-white font-bold py-2 px-6 shadow-lg font-cinzel tracking-wider bg-transparent rounded-md transition  hover:bg-current/20 hover:shadow-xl duration-200 border border-white/20 backdrop-blur-sm">
             EXECUTE
           </button>
         </div>

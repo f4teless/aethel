@@ -10,7 +10,7 @@
       
       <a
         href="/login"
-        class="inline-block bg-white/10 hover:bg-white/20 border border-white/30 px-6 py-4 rounded-md font-bold font-cinzel tracking-wide backdrop-blur transition"
+        class="inline-block px-6 py-4 font-bold font-cinzel tracking-wide bg-transparent rounded-md transition  hover:bg-current/20 hover:shadow-xl duration-200 border border-white/20 backdrop-blur-sm"
       >
         Begin Your Journey
       </a>

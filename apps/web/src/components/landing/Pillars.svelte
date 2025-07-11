@@ -1,7 +1,7 @@
 <script lang="ts">
-  import BrainIcon from "$lib/assets/icons/BrainIcon.svg";
-  import CodeIcon from "$lib/assets/icons/CodeIcon.svg";
-  import CommunityIcon from "$lib/assets/icons/CommunityIcon.svg";
+  import BrainIcon from "$lib/assets/icons/landing/BrainIcon.svg";
+  import CodeIcon from "$lib/assets/icons/landing/CodeIcon.svg";
+  import CommunityIcon from "$lib/assets/icons/landing/CommunityIcon.svg";
 </script>
 
 <svelte:options namespace="html" />
