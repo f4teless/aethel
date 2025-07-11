@@ -9,7 +9,7 @@
 <div class="py-20 md:py-32">
   <div class="container mx-auto px-6 text-center">
     <h2 class="font-cinzel text-4xl md:text-5xl text-white font-bold drop-shadow-lg">
-      Forge Your LegendfeaturePvp
+      Forge Your Legend
     </h2>
     <p class="font-cormorantI text-xl text-white/80 mt-4 max-w-3xl mx-auto">
       Your path is your own. Specialize your skills, conquer challenges with allies, or prove your supremacy in the arena.

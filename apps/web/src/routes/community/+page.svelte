@@ -119,7 +119,7 @@
         <ol class="space-y-3 animate-fade-in">
           {#each pvpRankings as player}
             <li
-              class="flex items-center justify-between bg-white/10 p-3 rounded-md border border-white/10 hover:border-white/20 transition "
+              class="flex items-center justify-between bg-white/10 p-3 rounded-md border border-white/10 hover:border-white/20 transition"
             >
               <div class="flex items-center space-x-4">
                 <span class="font-cinzel text-xl text-slate-400 w-6"
@@ -197,7 +197,9 @@
         <p class="text-white/70 text-sm mt-2">
           A new Corruption fragment requires debugging.
         </p>
-        <div class="my-4 bg-transparent p-4 rounded-md border border border-white/20">
+        <div
+          class="my-4 bg-transparent p-4 rounded-md border border border-white/20"
+        >
           <p class="text-lg font-semibold">{dailyBounty.title}</p>
           <p class="text-sm mt-1">
             <span class="text-yellow-400">{dailyBounty.difficulty}</span>
@@ -209,8 +211,7 @@
         </div>
         <a
           href="/play/daily"
-          class="text-white py-2 px-6 font-bold tracking-wide shadow-lg bg-transparent rounded-md transition  hover:bg-current/20 hover:shadow-xl duration-200 border border-white/20 backdrop-blur-sm cursor-not-allowed"
-
+          class="text-white py-2 px-6 font-bold tracking-wide shadow-lg bg-transparent rounded-md transition hover:bg-current/20 hover:shadow-xl duration-200 border border-white/20 backdrop-blur-sm cursor-not-allowed"
         >
           ACCEPT BOUNTY
         </a>
@@ -226,14 +227,16 @@
     </p>
     <div class="flex justify-center space-x-4 mt-6">
       <a
-	  href=""
-        class="text-white font-bold py-3 px-6 bg-transparent rounded-md transition  hover:bg-current/20 hover:shadow-xl duration-200 border border-white/20 backdrop-blur-sm"
+        href="https://discord.com/users/755804749210845236"
+        target="_blank"
+        class="text-white font-bold py-3 px-6 bg-transparent rounded-md transition hover:bg-current/20 hover:shadow-xl duration-200 border border-white/20 backdrop-blur-sm"
       >
         Join Discord
       </a>
 
       <a
-        href="https://discord.com/users/755804749210845236"
+        href="https://x.com/playaethel"
+        target="_blank"
         class="text-white font-bold py-3 px-8 bg-transparent rounded-md transition hover:bg-current/20 hover:shadow-xl duration-200 border border-white/20 backdrop-blur-sm"
         >Follow on X</a
       >
