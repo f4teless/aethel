@@ -1,46 +1,33 @@
-"use client"
-import { useQuery } from "@tanstack/react-query";
-import { orpc } from "@/utils/orpc";
+import { hero, getRandomItem } from "../lib/constants";
+import Hero from "../components/Hero";
+import Pillars from "../components/Pillars";
+import FinalCta from "../components/FinalCta";
+import Footer from "../components/Footer";
+import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
+import dynamic from "next/dynamic";
 
-const TITLE_TEXT = `
- ██████╗ ███████╗████████╗████████╗███████╗██████╗
- ██╔══██╗██╔════╝╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗
- ██████╔╝█████╗     ██║      ██║   █████╗  ██████╔╝
- ██╔══██╗██╔══╝     ██║      ██║   ██╔══╝  ██╔══██╗
- ██████╔╝███████╗   ██║      ██║   ███████╗██║  ██║
- ╚═════╝ ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝
+// Dynamically import heavy components
+const DynamicGamePlay = dynamic(() => import("../components/GamePlay"), {
+  loading: () => <div className="py-20 md:py-32 bg-black/20 animate-pulse" />,
+  ssr: true,
+});
 
- ████████╗    ███████╗████████╗ █████╗  ██████╗██╗  ██╗
- ╚══██╔══╝    ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝
-    ██║       ███████╗   ██║   ███████║██║     █████╔╝
-    ██║       ╚════██║   ██║   ██╔══██║██║     ██╔═██╗
-    ██║       ███████║   ██║   ██║  ██║╚██████╗██║  ██╗
-    ╚═╝       ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
- `;
+const DynamicFeatures = dynamic(() => import("../components/Features"), {
+  loading: () => <div className="py-20 md:py-32 bg-black/20 animate-pulse" />,
+  ssr: true,
+});
 
-export default function Home() {
-  const healthCheck = useQuery(orpc.healthCheck.queryOptions());
+export default function HomePage() {
+  const heroData = getRandomItem(hero);
 
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-2">
-      <pre className="overflow-x-auto font-mono text-sm">{TITLE_TEXT}</pre>
-      <div className="grid gap-6">
-        <section className="rounded-lg border p-4">
-          <h2 className="mb-2 font-medium">API Status</h2>
-            <div className="flex items-center gap-2">
-              <div
-                className={`h-2 w-2 rounded-full ${healthCheck.data ? "bg-green-500" : "bg-red-500"}`}
-              />
-              <span className="text-sm text-muted-foreground">
-                {healthCheck.isLoading
-                  ? "Checking..."
-                  : healthCheck.data
-                    ? "Connected"
-                    : "Disconnected"}
-              </span>
-            </div>
-        </section>
-      </div>
-    </div>
+      <ClientBackgroundWrapper backgroundImage="url(/bg2.webp)">
+        <Hero heroData={heroData} />
+        <Pillars />
+        <DynamicFeatures />
+        <DynamicGamePlay />
+        <FinalCta />
+        <Footer />
+      </ClientBackgroundWrapper>
   );
 }

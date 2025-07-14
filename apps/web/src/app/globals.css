@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import 'lenis/dist/lenis.css';
+
+@theme {
+  --font-cinzel: var(--font-cinzel), "Cinzel Decorative", serif;
+  --font-cormorant: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-ebg: var(--font-ebgaramond), "EB Garamond", serif;
+  --font-manrope: var(--font-manrope), "Manrope", sans-serif;
+  --font-medieval: var(--font-medieval), "MedievalSharp", serif;
+  --font-imfell: var(--font-imfell), serif;
+}
+
+body {
+  color: black;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}
