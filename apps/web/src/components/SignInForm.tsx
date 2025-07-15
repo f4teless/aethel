@@ -22,6 +22,7 @@ export default function SignInForm() {
         {
           email: value.email,
           password: value.password,
+          callbackURL: "/dashboard",
         },
         {
           onSuccess: () => {

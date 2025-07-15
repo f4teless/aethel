@@ -14,7 +14,7 @@ const Header = () => {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  const transparent = true; // Placeholder
+  const transparent = true;
 
   return (
     <div

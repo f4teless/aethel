@@ -15,7 +15,7 @@ const ClientBackgroundWrapper = ({ children, backgroundImage }: ClientBackground
     if (backgroundImage) {
       setBackgroundImage(backgroundImage);
     }
-  }, [setBackgroundImage, backgroundImage]);
+    }, [setBackgroundImage, backgroundImage]);
 
   return <div>{children}</div>;
 };
