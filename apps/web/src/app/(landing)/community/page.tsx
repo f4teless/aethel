@@ -1,16 +1,29 @@
-import { communityImages, getRandomItem } from "@/lib/constants";
+"use client";
+
+import { useState, useEffect } from "react";
 import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
-import CommunityMain from "@/components/CommunityMain";
+import { LazyCommunityMain } from "@/components/LazyComponents";
+import { communityImages, getRandomItem } from "@/lib/constants";
+import { usePerformanceMonitor } from "@/hooks/usePerformance";
 
 const CommunityPage = () => {
-  const randomBg = getRandomItem(communityImages);
+	usePerformanceMonitor("CommunityPage");
+	const [randomBg, setRandomBg] = useState(communityImages[0]); // Use first image as default
 
-  return (
-    <ClientBackgroundWrapper backgroundImage={`url(${randomBg})`}>
-      <link rel="preload" as="image" href={randomBg} />
-      <CommunityMain />
-    </ClientBackgroundWrapper>
-  );
+	useEffect(() => {
+		// Set random background after mount to avoid hydration mismatch
+		setRandomBg(getRandomItem(communityImages));
+	}, []);
+
+	return (
+		<ClientBackgroundWrapper backgroundImage={`url(${randomBg})`}>
+			<link rel="preload" as="image" href={randomBg} />
+			<div className="min-h-screen text-white">
+				{/* Main Community Content - Lazy Loaded */}
+				<LazyCommunityMain />
+			</div>
+		</ClientBackgroundWrapper>
+	);
 };
 
 export default CommunityPage;

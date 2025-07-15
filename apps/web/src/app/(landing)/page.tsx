@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react";
 import { hero, getRandomItem } from "@/lib/constants";
 import Hero from "@/components/Hero";
 import Pillars from "@/components/Pillars";
@@ -20,7 +21,12 @@ const IntersectionGamePlay = withIntersectionLoading(LazyGamePlay, 0.2);
 export default function HomePage() {
   usePerformanceMonitor('HomePage');
   
-  const heroData = getRandomItem(hero);
+  const [heroData, setHeroData] = useState(hero[0]); // Use first hero as default
+
+  useEffect(() => {
+    // Set random hero after mount to avoid hydration mismatch
+    setHeroData(getRandomItem(hero));
+  }, []);
 
   return (
     <ClientBackgroundWrapper backgroundImage="url(/bg2.webp)">

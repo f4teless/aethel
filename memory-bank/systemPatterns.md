@@ -168,3 +168,45 @@ Strategic approach to framework migration while preserving project history and f
 - Package.json transformation for React ecosystem
 - Component architecture translation from Svelte to React
 - Deployment strategy change from Cloudflare Pages to Vercel
+
+
+## RPG Floating Orb Navigation Pattern
+
+Immersive navigation system using a mystical floating orb that expands into a radial portal menu. Provides unique user experience for game-like coding platform with hover states, animations, and thematic portals for each section. Includes player status display, XP progression, and day/night cycle theme toggle.
+
+### Examples
+
+- GameMenu.tsx with useState for menu expansion
+- Radial positioning using trigonometry for portal placement
+- CSS custom properties for consistent RPG theming
+- useTheme hook integration for day/night cycle
+- Conditional rendering based on authenticated routes
+- Portal tooltips with hover state management
+
+
+## Conditional Game Interface Layout Pattern
+
+Route-aware layout component that conditionally renders game interface elements only on authenticated game routes. Provides ambient background effects, floating particles, and immersive atmosphere while preserving clean layout for public pages.
+
+### Examples
+
+- GameLayout.tsx with pathname checking
+- Route array for game-specific paths
+- Conditional rendering based on route matching
+- Background particle effects with random positioning
+- Z-index layering for overlay components
+- usePathname hook for route detection
+
+
+## Intersection Observer Lazy Loading Pattern
+
+Intersection observer-based lazy loading for performance optimization. Components are loaded only when they enter the viewport, reducing initial bundle size and improving page load performance. Includes fallback loading states with themed spinners.
+
+### Examples
+
+- withIntersectionLoading HOC pattern
+- Dynamic imports with Next.js dynamic()
+- Suspense boundaries with custom loading components
+- LazyComponents.tsx with component factory functions
+- Viewport threshold configuration (0.1, 0.2)
+- Loading spinner with RPG theming

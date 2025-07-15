@@ -195,11 +195,10 @@ const CommunityMain = () => {
 
       <div className="mt-16 text-center">
         <h2 className="font-cinzel text-4xl text-white">
-          Join the Conversation
+          Join the Alliance
         </h2>
         <p className="font-cormorant italic text-xl text-white/80 mt-2">
-          Coordinate with fellow Architects, share strategies, and forge
-          alliances.
+          Join the collective mind that guides our realm through the digital darkness and shape the future of Aethel. 
         </p>
         <div className="flex justify-center space-x-4 mt-6">
           <a

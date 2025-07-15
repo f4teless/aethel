@@ -3,8 +3,32 @@
 import { useState } from "react";
 import Image from "next/image";
 import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
+import { usePerformanceMonitor } from "@/hooks/usePerformance";
+
+// Optimized Image component for better performance
+const OptimizedImage = ({ src, alt, width, height, className }: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+}) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    className={className}
+    priority={false}
+    loading="lazy"
+    quality={85}
+    placeholder="blur"
+    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkaGx0f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAhEQACAQIEBwAAAAAAAAAAAAABAgMAEQQFITFBUaGx0f/aAAwDAQACEQMRAD8A0XGARslxQlNvOL/z"
+  />
+);
 
 const LorePage = () => {
+  usePerformanceMonitor("LorePage");
   const [activeTab, setActiveTab] = useState("unraveling");
 
   return (
@@ -21,11 +45,13 @@ const LorePage = () => {
           </p>
         </header>
 
-        <div className="top-[70px] z-40 bg-slate-900/50 backdrop-blur-lg rounded-lg border border-white/10 mb-12">
+        <div className="sticky top-[70px] z-40 bg-slate-900/70 backdrop-blur-lg rounded-lg border border-white/20 mb-12 shadow-xl">
           <nav className="flex justify-center items-center flex-wrap gap-x-4 sm:gap-x-8 p-4 font-cinzel tracking-wider">
             <button
-              className={`transition cursor-pointer ${
-                activeTab === "world" ? "text-white" : "text-white/60"
+              className={`transition-all duration-300 cursor-pointer px-4 py-2 rounded-lg ${
+                activeTab === "world" 
+                  ? "text-white bg-white/10 border border-white/20 shadow-lg" 
+                  : "text-white/60 hover:text-white/80 hover:bg-white/5"
               }`}
               onClick={() => setActiveTab("world")}
             >
@@ -33,8 +59,10 @@ const LorePage = () => {
             </button>
             <div className="h-4 w-px bg-white/20 hidden sm:block" />
             <button
-              className={`transition cursor-pointer ${
-                activeTab === "unraveling" ? "text-white" : "text-white/60"
+              className={`transition-all duration-300 cursor-pointer px-4 py-2 rounded-lg ${
+                activeTab === "unraveling" 
+                  ? "text-white bg-white/10 border border-white/20 shadow-lg" 
+                  : "text-white/60 hover:text-white/80 hover:bg-white/5"
               }`}
               onClick={() => setActiveTab("unraveling")}
             >
@@ -42,8 +70,10 @@ const LorePage = () => {
             </button>
             <div className="h-4 w-px bg-white/20 hidden sm:block" />
             <button
-              className={`transition cursor-pointer ${
-                activeTab === "corruption" ? "text-white" : "text-white/60"
+              className={`transition-all duration-300 cursor-pointer px-4 py-2 rounded-lg ${
+                activeTab === "corruption" 
+                  ? "text-white bg-white/10 border border-white/20 shadow-lg" 
+                  : "text-white/60 hover:text-white/80 hover:bg-white/5"
               }`}
               onClick={() => setActiveTab("corruption")}
             >
@@ -51,8 +81,10 @@ const LorePage = () => {
             </button>
             <div className="h-4 w-px bg-white/20 hidden sm:block" />
             <button
-              className={`transition cursor-pointer ${
-                activeTab === "architects" ? "text-white" : "text-white/60"
+              className={`transition-all duration-300 cursor-pointer px-4 py-2 rounded-lg ${
+                activeTab === "architects" 
+                  ? "text-white bg-white/10 border border-white/20 shadow-lg" 
+                  : "text-white/60 hover:text-white/80 hover:bg-white/5"
               }`}
               onClick={() => setActiveTab("architects")}
             >
@@ -63,11 +95,11 @@ const LorePage = () => {
 
         <div className="max-w-4xl mx-auto space-y-20">
           {activeTab === "world" && (
-            <section className="space-y-6 animate-fade-in">
+            <section className="space-y-6 opacity-0 animate-fade-in">
               <h2 className="font-cinzel text-3xl md:text-4xl border-b border-white/20 pb-2">
                 Aethel: The CodeRealm
               </h2>
-              <Image
+              <OptimizedImage
                 src="/lore-world.webp"
                 alt="A sweeping vista of the world of Aethel"
                 width={1024}
@@ -90,11 +122,11 @@ const LorePage = () => {
           )}
 
           {activeTab === "unraveling" && (
-            <section className="space-y-6 animate-fade-in">
+            <section className="space-y-6 opacity-0 animate-fade-in">
               <h2 className="font-cinzel text-3xl md:text-4xl border-b border-white/20 pb-2">
                 The Great Unraveling
               </h2>
-              <Image
+              <OptimizedImage
                 src="/lore-unraveling.webp"
                 alt="A world fracturing and dissolving into digital fragments"
                 width={1024}
@@ -116,11 +148,11 @@ const LorePage = () => {
           )}
 
           {activeTab === "corruption" && (
-            <section className="space-y-6 animate-fade-in">
+            <section className="space-y-6 opacity-0 animate-fade-in">
               <h2 className="font-cinzel text-3xl md:text-4xl border-b border-white/20 pb-2">
                 The Code Corruption
               </h2>
-              <Image
+              <OptimizedImage
                 src="/lore-corruption.webp"
                 alt="A monstrous glitch beast"
                 width={1024}
@@ -142,11 +174,11 @@ const LorePage = () => {
           )}
 
           {activeTab === "architects" && (
-            <section className="space-y-6 animate-fade-in">
+            <section className="space-y-6 opacity-0 animate-fade-in">
               <h2 className="font-cinzel text-3xl md:text-4xl border-b border-white/20 pb-2">
                 The Architects
               </h2>
-              <Image
+              <OptimizedImage
                 src="/lore-architect.webp"
                 alt="A cloaked figure manipulating lines of code"
                 width={1024}

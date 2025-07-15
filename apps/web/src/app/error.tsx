@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { errorImages, getRandomItem } from "../lib/constants";
 import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
@@ -10,7 +11,12 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-   const randomBg = getRandomItem(errorImages);
+  const [randomBg, setRandomBg] = useState(errorImages[0]); // Use first image as default
+
+  useEffect(() => {
+    // Set random background after mount to avoid hydration mismatch
+    setRandomBg(getRandomItem(errorImages));
+  }, []);
 
   return (
     <ClientBackgroundWrapper backgroundImage={`url(${randomBg})`}>

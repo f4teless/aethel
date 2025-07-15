@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { leaderboardImages, getRandomItem } from "@/lib/constants";
 import LeaderboardClient from "@/components/LeaderboardClient";
 import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
@@ -51,7 +54,13 @@ const leaderboards = {
 
 
 export default function LeaderboardPage() {
-  const randomBg = getRandomItem(leaderboardImages);
+  const [randomBg, setRandomBg] = useState(leaderboardImages[0]); // Use first image as default
+
+  useEffect(() => {
+    // Set random background after mount to avoid hydration mismatch
+    setRandomBg(getRandomItem(leaderboardImages));
+  }, []);
+
   return (
       <ClientBackgroundWrapper backgroundImage={`url(${randomBg})`}>
         <link rel="preload" as="image" href={randomBg} />

@@ -5,6 +5,15 @@ This file contains the architectural decisions and design patterns for the Memor
 
 ## Architectural Decisions
 
+- Chose floating orb over traditional sidebar/header for unique UX
+- Implemented radial menu design for mystical portal theme
+- Used intersection observer for performance-conscious lazy loading
+- Built modular component system for easy maintenance
+- Integrated theme system seamlessly with existing CSS variables
+- Created comprehensive testing and monitoring infrastructure
+
+
+
 - Created RPG-style floating orb navigation system instead of traditional header/sidebar
 - Implemented radial menu design with mystical portal theme
 - Built GameLayout component for authenticated routes
@@ -51,6 +60,15 @@ This file contains the architectural decisions and design patterns for the Memor
 
 ## Design Considerations
 
+- Maintained RPG aesthetic throughout all optimizations
+- Preserved user experience while adding performance features
+- Created unique navigation that differentiates from competitors
+- Ensured all routes are properly protected with authentication
+- Built scalable architecture for future feature additions
+- Implemented comprehensive error handling and recovery
+
+
+
 - Used floating orb design to avoid cluttering the interface
 - Radial menu provides quick access to all game sections
 - Theme integration works seamlessly with existing CSS variables
@@ -91,6 +109,58 @@ This file contains the architectural decisions and design patterns for the Memor
 
 
 ## Components
+
+### Authentication Layer
+
+Comprehensive authentication system with server and client-side protection
+
+**Responsibilities:**
+
+- Middleware-based route protection
+- AuthGuard component for client-side protection
+- Session management and validation
+- Environment variable validation
+
+### RPG Navigation System
+
+Unique floating mystical orb navigation with radial portal menu
+
+**Responsibilities:**
+
+- Floating orb with hover expansion
+- Radial portal menu for game sections
+- Player status and XP display
+- Day/night cycle theme toggle
+- Ambient background effects
+
+### Performance Infrastructure
+
+Performance optimization layer with lazy loading and caching
+
+**Responsibilities:**
+
+- Intersection observer lazy loading
+- Service worker caching strategies
+- Component virtualization
+- Bundle analysis and optimization
+- Memory and Web Vitals monitoring
+
+### Game Routes
+
+Game-themed route pages with immersive content
+
+**Responsibilities:**
+
+- Dungeons - coding challenges
+- Quests - learning progression
+- Skill Tree - ability advancement
+- Leaderboard - player rankings
+- Profile - character management
+- Dashboard - command center
+
+
+
+
 
 ### GameMenu
 
