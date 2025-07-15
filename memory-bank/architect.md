@@ -5,6 +5,13 @@ This file contains the architectural decisions and design patterns for the Memor
 
 ## Architectural Decisions
 
+- Created RPG-style floating orb navigation system instead of traditional header/sidebar
+- Implemented radial menu design with mystical portal theme
+- Built GameLayout component for authenticated routes
+- Added comprehensive theme toggle as day/night cycle mechanism
+
+
+
 - Use AI for dynamic storytelling instead of pre-written content
 - Implement class system based on algorithmic domains rather than traditional RPG archetypes
 - Integrate coding challenges directly into narrative flow
@@ -44,6 +51,15 @@ This file contains the architectural decisions and design patterns for the Memor
 
 ## Design Considerations
 
+- Used floating orb design to avoid cluttering the interface
+- Radial menu provides quick access to all game sections
+- Theme integration works seamlessly with existing CSS variables
+- Hover states and animations enhance the mystical experience
+- Player stats show real-time progression data
+- Background effects add ambient gaming atmosphere without distraction
+
+
+
 - AI narrative generation must be cost-effective and responsive
 - Code execution security and sandboxing critical
 - Real-time multiplayer requires robust networking
@@ -75,6 +91,41 @@ This file contains the architectural decisions and design patterns for the Memor
 
 
 ## Components
+
+### GameMenu
+
+Floating mystical orb that expands into radial navigation menu
+
+**Responsibilities:**
+
+- Route navigation between game sections
+- Player status display with XP bar
+- Theme toggle as day/night cycle
+- Animated portal interfaces for each section
+
+### GameLayout
+
+Layout wrapper for authenticated game routes
+
+**Responsibilities:**
+
+- Conditionally renders game interface on appropriate routes
+- Provides ambient background effects
+- Manages main content layout with game overlay
+
+### Game Route Pages
+
+Individual pages for dungeons, quests, skilltree, leaderboard
+
+**Responsibilities:**
+
+- Display game-specific content with RPG theming
+- Integrate with AuthGuard for protection
+- Maintain consistent RPG aesthetic
+
+
+
+
 
 ### AI Chronicler
 

@@ -3,6 +3,11 @@ import Providers from "./providers";
 import Header from "../components/Header";
 import ClientBackgroundWrapper from "../components/ClientBackgroundWrapper";
 import BackgroundRenderer from "../components/BackgroundRenderer";
+import ErrorBoundary from "../components/ErrorBoundary";
+import LenisProvider from "../components/LenisProvider";
+import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
+import GameLayout from "../components/GameLayout";
+import { UpdateNotification } from "../hooks/useServiceWorker";
 import { 
   cinzel, 
   manrope, 
@@ -12,8 +17,6 @@ import {
   imFellEnglishSC 
 } from "../lib/fonts";
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { ReactLenis } from "lenis/react";
 
 export const metadata: Metadata = {
   title: {
@@ -81,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ReactLenis root>
+    <LenisProvider>
     <html 
       lang="en" 
       className={`
@@ -103,27 +106,19 @@ export default function RootLayout({
         fetchPriority="high"
         />
       </head>
+
       <body>
+        <ServiceWorkerRegistration />
         <Providers>
-           <ClientBackgroundWrapper backgroundImage="url(/bg2.webp)">
-            <BackgroundRenderer />
-            <div className="grid h-svh grid-rows-[auto_1fr] relative z-10">
-              <Header />
-              <Suspense fallback={
-                <main className="flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white mx-auto"></div>
-                    <p className="mt-4 font-cinzel">Loading the CodeRealm...</p>
-                  </div>
-                </main>
-              }>
-                <main>{children}</main>
-              </Suspense>
-            </div>
-            </ClientBackgroundWrapper>
+          <ErrorBoundary>
+            <GameLayout>
+              <main>{children}</main>
+            </GameLayout>
+            <UpdateNotification />
+          </ErrorBoundary>
         </Providers>
       </body>
     </html>
-    // </ReactLenis>
+    </LenisProvider>
   );
 }

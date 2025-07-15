@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
-import SignInForm from "../../components/SignInForm";
-import SignUpForm from "../../components/SignUpForm";
+import SignInForm from "@/components/SignInForm";
+import SignUpForm from "@/components/SignUpForm";
 import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
 
 interface Particle {

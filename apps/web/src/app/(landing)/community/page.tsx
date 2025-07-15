@@ -1,4 +1,4 @@
-import { communityImages, getRandomItem } from "../../lib/constants";
+import { communityImages, getRandomItem } from "@/lib/constants";
 import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
 import CommunityMain from "@/components/CommunityMain";
 
