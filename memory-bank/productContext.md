@@ -18,6 +18,10 @@ Provide a high-level overview of the project.
 
 ## Project Description
 
+A gamified coding education platform that combines text-based RPG storytelling with algorithmic problem-solving. Players progress through AI-generated narratives by solving coding challenges, unlock classes based on algorithmic domains, and participate in cooperative dungeons and PvP battles.
+
+
+
 A educational gaming platform that teaches programming concepts through an immersive fantasy narrative. Players are "Architects" who debug a corrupted digital world by solving algorithmic challenges, progressing through character classes, and competing in PvP scenarios. Migrated from SvelteKit to Next.js for better ecosystem support and performance optimizations.
 
 
@@ -28,6 +32,10 @@ A educational gaming platform that teaches programming concepts through an immer
 
 ## Architecture
 
+Monorepo with Next.js frontend and Hono backend on Cloudflare Workers, using tRPC for API communication, Drizzle ORM with PostgreSQL, and AI storytelling integration
+
+
+
 Full-stack TypeScript monorepo with distinct frontend and backend services. Frontend is a Next.js application deployed on Vercel, backend is a Hono server deployed on Cloudflare Workers. Uses Turborepo for build orchestration and PNPM for package management. Authentication handled by Better Auth with session management including Google and GitHub providers. Data persistence through PostgreSQL with Drizzle ORM. API communication via oRPC for type-safe client-server communication.
 
 
@@ -37,6 +45,18 @@ Full-stack TypeScript monorepo with distinct frontend and backend services. Fron
 
 
 ## Technologies
+
+- TypeScript
+- React
+- Svelte (planned)
+- Node.js
+- Cloudflare Workers
+- PostgreSQL
+- AI/LLM Integration
+- WebSockets
+- Real-time code execution
+
+
 
 - TypeScript
 - Next.js
@@ -78,6 +98,22 @@ Full-stack TypeScript monorepo with distinct frontend and backend services. Fron
 
 
 ## Libraries and Dependencies
+
+- Next.js
+- SvelteKit (planned)
+- Monaco Editor
+- Tailwind CSS
+- GSAP
+- Hono
+- tRPC
+- Drizzle ORM
+- Better-Auth
+- Gemini 2.5 Pro
+- PostgreSQL
+- Vercel Analytics
+- PostHog
+
+
 
 - @orpc/server
 - @orpc/client

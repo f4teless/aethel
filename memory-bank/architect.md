@@ -5,6 +5,14 @@ This file contains the architectural decisions and design patterns for the Memor
 
 ## Architectural Decisions
 
+- Use AI for dynamic storytelling instead of pre-written content
+- Implement class system based on algorithmic domains rather than traditional RPG archetypes
+- Integrate coding challenges directly into narrative flow
+- Support both cooperative and competitive multiplayer modes
+- Build on modern web stack for accessibility and scalability
+
+
+
 - Migrated from SvelteKit to Next.js for better React ecosystem support
 - Selected Vercel for frontend deployment to optimize Next.js performance
 - Implemented oRPC for end-to-end type safety replacing traditional REST APIs
@@ -36,6 +44,14 @@ This file contains the architectural decisions and design patterns for the Memor
 
 ## Design Considerations
 
+- AI narrative generation must be cost-effective and responsive
+- Code execution security and sandboxing critical
+- Real-time multiplayer requires robust networking
+- Class balance affects player engagement
+- Story branching complexity may impact performance
+
+
+
 - Cloudflare Workers have specific runtime limitations and cold start considerations
 - Database connections need to be optimized for serverless environment
 - Type safety across client-server boundary is critical for development velocity
@@ -59,6 +75,65 @@ This file contains the architectural decisions and design patterns for the Memor
 
 
 ## Components
+
+### AI Chronicler
+
+Core narrative engine using Gemini 2.5 Pro for dynamic story generation
+
+**Responsibilities:**
+
+- Generate immersive story scenes
+- React to player choices and battle outcomes
+- Create branching narrative paths
+- Maintain story continuity
+
+### Code Battle System
+
+Integrated coding challenge system with Monaco editor
+
+**Responsibilities:**
+
+- Present coding problems in narrative context
+- Execute and validate player solutions
+- Provide immediate feedback
+- Track performance metrics
+
+### Class Progression
+
+Domain-based character development system
+
+**Responsibilities:**
+
+- Track algorithmic domain proficiency
+- Unlock class-specific abilities
+- Manage passive skill bonuses
+- Calculate XP and level progression
+
+### Multiplayer Systems
+
+Cooperative dungeons and PvP arena infrastructure
+
+**Responsibilities:**
+
+- Manage real-time multiplayer sessions
+- Synchronize shared challenges
+- Handle competitive matchmaking
+- Coordinate world events
+
+### World State Manager
+
+Persistent game world and player progress tracking
+
+**Responsibilities:**
+
+- Maintain player save states
+- Track global server events
+- Manage dungeon availability
+- Store narrative choices and consequences
+
+
+
+
 
 ### Web Client
 
