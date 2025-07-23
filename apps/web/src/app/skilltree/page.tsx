@@ -1,8 +1,6 @@
-import AuthGuard from "@/components/AuthGuard";
 
 export default function SkillTreePage() {
   return (
-    <AuthGuard>
       <div className="min-h-screen p-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-6 mb-12">
@@ -149,6 +147,5 @@ export default function SkillTreePage() {
           </div>
         </div>
       </div>
-    </AuthGuard>
   );
 }

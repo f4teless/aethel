@@ -9,7 +9,7 @@ import type { RouterClient } from "@orpc/server";
 export const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: (error) => {
-      toast.error(`Error: ${error.message}`, {
+      toast(`Error: ${error.message}`, {
         action: {
           label: "retry",
           onClick: () => {

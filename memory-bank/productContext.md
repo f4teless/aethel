@@ -1,160 +1,116 @@
 # Product Context
 
-Describe the product.
+## Project Description
 
-## Overview
+Aethel is a dark fantasy coding education platform that teaches Data Structures and Algorithms (DSA) through an epic, immersive narrative experience. The platform combines 80% fantasy storytelling with 20% subtle logical elements to create engaging educational content.
 
-Provide a high-level overview of the project.
+## Core Narrative Principles
+
+### Meta-Awareness Foundation
+- **Earth Origin**: Player character originates from normal world with existing programming knowledge
+- **Natural Justification**: Logical thinking skills from Earth translate to survival abilities in fantasy realm
+- **Familiar References**: Player can reference their normal world experience when appropriate
+- **Consistent Difficulty**: Easy problems in early chapters, scaling systematically to Hard problems
+
+### Technical Language Subtlety
+- **Primary Language**: Fantasy/RPG terminology (villages, towers, bridges, ancient magic, guilds, quests)
+- **Secondary Elements**: Logical/mathematical concepts when necessary for puzzle context
+- **Avoid**: Direct programming terminology in narrative descriptions unless absolutely necessary
+- **Exception**: Technical terms allowed in actual problem statements and character dialogue about specific challenges
+
+Aethel is a dark fantasy story-driven coding education platform that teaches Data Structures and Algorithms through immersive narrative gameplay. Players take on the role of a programmer transported from Earth to a cursed realm where their logical thinking abilities become supernatural powers with dangerous consequences.
 
 ## Core Features
 
-- Feature 1
-- Feature 2
+### Story-Driven Learning
+- **Dark Fantasy Narrative**: Inspired by Shadow Slave and Lord of the Mysteries
+- **Meta Origin Story**: Player comes from Earth, fell asleep while coding, awakens in fantasy realm
+- **Three-Path Prologue**: Village Gate Crisis (Two Sum), Ancient Symbols (Linear Search), Mountain Perspective (Basic Sorting)
+- **Consistent Difficulty Scaling**: Easy (Chapters 1-84) → Easy-Medium (85-168) → Medium (169-252) → Medium-Hard (253-336) → Hard (337-420)
+- **Character Consequences**: NPCs react to player's growing logical abilities with fear/fascination/isolation
+
+### DSA Integration  
+- **Beginner-Friendly Start**: Two Sum, Linear Search, Basic Sorting in prologue and early chapters
+- **LeetCode-Style Challenges**: Real Python coding problems embedded in story context
+- **Natural Problem Emergence**: Challenges arise organically from narrative needs, not forced technical insertion
+- **Algorithm Progression**: Arrays/Search → Hash Maps → Basic Trees → Graph Theory → Dynamic Programming → Advanced Optimization
+- **Time/Space Complexity**: Educational focus on algorithmic analysis without overwhelming narrative
+
+### Gamification Elements
+- **Character Classes**: Based on algorithmic specializations (Array Master, Graph Sage, DP Specialist)
+- **RPG Progression**: Experience gained through problem solving
+- **PvP Competitions**: Head-to-head coding battles
+- **Cooperative Dungeons**: Team-based algorithmic challenges
 
 ## Technical Stack
 
-- Tech 1
-- Tech 2
+### Frontend (Next.js)
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS with dark fantasy theme
+- **UI Components**: Custom RPG-styled interface
+- **Deployment**: Vercel for optimal Next.js performance
 
-## Project Description
+### Backend (Hono on Cloudflare Workers)
+- **API Framework**: Hono for lightweight, fast edge computing
+- **Database**: PostgreSQL with Drizzle ORM for type safety
+- **Authentication**: Better-auth for user management
+- **Deployment**: Cloudflare Workers for global edge performance
 
-A gamified coding education platform that combines text-based RPG storytelling with algorithmic problem-solving. Players progress through AI-generated narratives by solving coding challenges, unlock classes based on algorithmic domains, and participate in cooperative dungeons and PvP battles.
+### Architecture
 
-
-
-A educational gaming platform that teaches programming concepts through an immersive fantasy narrative. Players are "Architects" who debug a corrupted digital world by solving algorithmic challenges, progressing through character classes, and competing in PvP scenarios. Migrated from SvelteKit to Next.js for better ecosystem support and performance optimizations.
-
-
-
-A educational gaming platform that teaches programming concepts through an immersive fantasy narrative. Players are "Architects" who debug a corrupted digital world by solving algorithmic challenges, progressing through character classes, and competing in PvP scenarios.
-
-
-
-## Architecture
-
-Monorepo with Next.js frontend and Hono backend on Cloudflare Workers, using tRPC for API communication, Drizzle ORM with PostgreSQL, and AI storytelling integration
+The platform uses a Next.js 15 frontend deployed on Vercel with a Hono/Cloudflare Workers backend. The story content is generated by AI using comprehensive context files and delivered through a mobile-optimized reading experience. The educational system covers 1,260+ DSA problems across 420 chapters, with balanced topic distribution ensuring variety and sustained engagement.
 
 
+- **Monorepo**: Turborepo with PNPM workspaces
+- **Type Safety**: End-to-end TypeScript from database to UI
+- **Edge-First**: Optimized for global low-latency access
 
-Full-stack TypeScript monorepo with distinct frontend and backend services. Frontend is a Next.js application deployed on Vercel, backend is a Hono server deployed on Cloudflare Workers. Uses Turborepo for build orchestration and PNPM for package management. Authentication handled by Better Auth with session management including Google and GitHub providers. Data persistence through PostgreSQL with Drizzle ORM. API communication via oRPC for type-safe client-server communication.
+## Key Technologies
 
+### Core Stack
+- **TypeScript**: Full-stack type safety
+- **Next.js 15**: Frontend framework with App Router
+- **Hono**: Lightweight API framework for Cloudflare Workers
+- **PostgreSQL**: Database with Drizzle ORM
+- **oRPC**: Type-safe client-server communication
 
+### Development Tools
+- **Turborepo**: Monorepo build orchestration
+- **PNPM**: Package management
+- **Biome**: Code formatting and linting
+- **TailwindCSS**: Utility-first styling
 
-Full-stack TypeScript monorepo with distinct frontend and backend services. Frontend is a SvelteKit application deployed on Cloudflare Pages, backend is a Hono server deployed on Cloudflare Workers. Uses Turborepo for build orchestration and PNPM for package management. Authentication handled by Better Auth with session management. Data persistence through PostgreSQL with Drizzle ORM. API communication via oRPC for type-safe client-server communication.
+### Deployment & Performance
+- **Vercel**: Frontend deployment optimized for Next.js
+- **Cloudflare Workers**: Global edge API deployment
+- **Better Auth**: Authentication with Google/GitHub providers
+- **GSAP**: Smooth animations and transitions
 
 
 
 ## Technologies
 
-- TypeScript
-- React
-- Svelte (planned)
-- Node.js
-- Cloudflare Workers
-- PostgreSQL
-- AI/LLM Integration
-- WebSockets
-- Real-time code execution
-
-
-
-- TypeScript
-- Next.js
-- React
+- Next.js 15
 - Hono
 - Cloudflare Workers
+- PostgreSQL
+- Drizzle ORM
+- Turborepo
 - Vercel
-- PostgreSQL
-- Drizzle ORM
-- TailwindCSS
-- Turborepo
-- PNPM
-- Biome
-- Vite
-- oRPC
-- Better Auth
-- GSAP
-- Progressive Web App
-
-
-
 - TypeScript
-- SvelteKit
-- Hono
-- Cloudflare Workers
-- Cloudflare Pages
-- PostgreSQL
-- Drizzle ORM
-- TailwindCSS
-- Turborepo
-- PNPM
-- Biome
-- Vite
-- oRPC
-- Better Auth
-- GSAP
-- Progressive Web App
+- Tailwind CSS
+- AI Story Generation
 
 
 
 ## Libraries and Dependencies
 
-- Next.js
-- SvelteKit (planned)
-- Monaco Editor
+- React
 - Tailwind CSS
-- GSAP
-- Hono
-- tRPC
 - Drizzle ORM
-- Better-Auth
-- Gemini 2.5 Pro
-- PostgreSQL
-- Vercel Analytics
-- PostHog
-
-
-
-- @orpc/server
-- @orpc/client
-- @orpc/tanstack-query
-- hono
-- better-auth
-- drizzle-orm
-- @neondatabase/serverless
-- zod
-- next
-- react
-- react-dom
-- @tanstack/react-query
-- tailwindcss
-- gsap
-- lenis
-- lucide-react
-- next-themes
-- sonner
-- clsx
-- class-variance-authority
-
-
-
-- @orpc/server
-- @orpc/client
-- @orpc/tanstack-query
-- hono
-- better-auth
-- drizzle-orm
-- @neondatabase/serverless
-- zod
-- svelte
-- @sveltejs/kit
-- @tanstack/svelte-query
-- tailwindcss
-- gsap
-- lenis
-- lucide-react
-- next-themes
-- sonner
-- clsx
-- class-variance-authority
+- Hono
+- Cloudflare Workers
+- Turborepo
+- Biome
+- TypeScript
 

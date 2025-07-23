@@ -1,8 +1,5 @@
-import AuthGuard from "@/components/AuthGuard";
-
 export default function DungeonsPage() {
   return (
-    <AuthGuard>
       <div className="min-h-screen p-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-6">
@@ -40,6 +37,5 @@ export default function DungeonsPage() {
           </div>
         </div>
       </div>
-    </AuthGuard>
   );
 }

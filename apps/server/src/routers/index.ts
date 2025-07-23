@@ -1,5 +1,9 @@
 import { protectedProcedure, publicProcedure } from "../lib/orpc";
-import { todoRouter } from "./todo";
+import { userRouter } from "./user";
+import { questRouter } from "./quest";
+import { achievementRouter } from "./achievement";
+import { communityRouter } from "./community";
+import { equipmentRouter } from "./equipment";
 
 export const appRouter = {
   healthCheck: publicProcedure.handler(() => {
@@ -11,6 +15,12 @@ export const appRouter = {
       user: context.session?.user,
     };
   }),
-  todo: todoRouter,
+
+  user: userRouter,
+  quest: questRouter,
+  achievement: achievementRouter,
+  community: communityRouter,
+  equipment: equipmentRouter,
 };
+
 export type AppRouter = typeof appRouter;

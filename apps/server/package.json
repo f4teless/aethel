@@ -13,22 +13,28 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx seed.ts",
+    "db:dev": "drizzle-kit push",
+    "create-dev-user": "tsx create-dev-user.ts"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "zod": "^4.0.2",
-    "@orpc/server": "^1.5.0",
-    "@orpc/client": "^1.5.0",
-    "hono": "^4.8.2",
-    "drizzle-orm": "^0.44.2",
     "@neondatabase/serverless": "^1.0.1",
-    "better-auth": "^1.2.10"
+    "@orpc/client": "^1.5.0",
+    "@orpc/server": "^1.5.0",
+    "better-auth": "^1.2.10",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.44.2",
+    "drizzle-seed": "^0.3.1",
+    "hono": "^4.8.2",
+    "zod": "^4.0.2"
   },
   "devDependencies": {
+    "@types/node": "^20.19.7",
+    "drizzle-kit": "^0.31.4",
     "tsc-alias": "^1.8.11",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.2",
-    "drizzle-kit": "^0.31.2",
     "wrangler": "^4.23.0"
   }
 }

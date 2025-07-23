@@ -15,6 +15,18 @@ const nextConfig = {
         minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
         dangerouslyAllowSVG: true,
         contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                pathname: '/**',
+            },
+             {
+                protocol: 'https',
+                hostname: 'lh3.googleusercontent.com',
+                pathname: '/**',
+            },
+        ]
     },
     // Compression
     compress: true,
@@ -26,7 +38,7 @@ const nextConfig = {
         reactCompiler: true,
         viewTransition: true,
 
-        optimizePackageImports: ['lucide-react', '@tanstack/react-query', 'gsap'],
+        optimizePackageImports: ['lucide-react', '@tanstack/react-query', 'gsap', 'next-themes'],
         // turbo: {
         //     rules: {
         //         '*.svg': {

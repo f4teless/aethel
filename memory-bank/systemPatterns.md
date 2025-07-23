@@ -1,212 +1,107 @@
 # System Patterns
 
-## Architectural Patterns
+## Core Narrative Patterns
 
-### Full-Stack Monorepo Architecture
-- **Pattern**: Clear separation of concerns between frontend (Next.js) and backend (Hono) in a monorepo
-- **Purpose**: Independent deployment while sharing types and configurations
-- **Implementation**: Turborepo orchestration with PNPM workspaces
+### Meta-Awareness Integration Pattern
 
-### Edge-First Deployment Strategy  
-- **Pattern**: Frontend on Vercel, Backend on Cloudflare Workers
-- **Purpose**: Global low-latency distribution optimized for each platform
-- **Implementation**: Platform-specific optimizations and edge computing
+The player character consistently originates from Earth with existing programming knowledge. This creates natural justification for logical problem-solving abilities while maintaining player connection to real-world experience. NPCs can reference this origin when appropriate, and the protagonist draws upon normal world experience to solve fantasy realm challenges.
 
-### Type-Safe Full-Stack Communication
-- **Pattern**: End-to-end type safety from database to UI
-- **Purpose**: Eliminate runtime type errors and improve developer experience
-- **Implementation**: Drizzle ORM → oRPC → TanStack Query → React components
+#### Examples
+- Protagonist references debugging sessions from Earth when solving memory problems
+- NPCs occasionally ask about "the world you came from"
+- Player character explains logical thinking as "something I learned before coming here"
+- Earth programming experience becomes literal survival skill in fantasy context
 
-## Design Patterns
+### Technical Language Subtlety Pattern
 
-### Repository Pattern with ORM
-- **Pattern**: Data access abstraction through Drizzle ORM
-- **Purpose**: Decouple business logic from database implementation
-- **Implementation**: Modular schema files with type-safe queries
+Fantasy/RPG terminology should dominate narrative descriptions. Programming concepts only surface when absolutely necessary for puzzle context or character dialogue about specific challenges. This maintains immersion while preserving educational value.
 
-### Middleware Chain Pattern
-- **Pattern**: Authentication and authorization middleware pipeline
-- **Purpose**: Composable request processing with context enrichment
-- **Implementation**: Better Auth → Context creation → oRPC procedures
+#### Examples
+- "Ancient storage chambers" instead of "array structures"
+- "Memory fragments" instead of "data corruption"
+- "Pathway networks" instead of "graph topologies"
+- "Wisdom hierarchies" instead of "tree structures"
+- Technical terms allowed only in actual problem statements and direct challenge discussions
 
-### Provider Pattern for Client State
-- **Pattern**: React Context providers for global state management
-- **Purpose**: Share authentication state and UI preferences across components
-- **Implementation**: Auth providers, Theme providers, Query client providers
+### Consistent Difficulty Scaling Pattern
 
-## Common Idioms
+Easy problems (Two Sum, Linear Search, Basic Sorting) in Chapters 1-84, scaling systematically through Easy-Medium (85-168), Medium (169-252), Medium-Hard (253-336), to Hard (337-420). No complex algorithms should appear in early chapters regardless of narrative pressure.
 
-### "use client" Directive Pattern
-- **Idiom**: Explicit client-side rendering boundaries in Next.js App Router
-- **Usage**: Components that need browser APIs or interactivity
-- **Example**: `"use client"` at top of components using hooks or event handlers
+#### Examples
+- Prologue: Two Sum, Linear Search, Basic Sorting only
+- Chapter 50: Hash tables and simple tree operations
+- Chapter 150: Basic dynamic programming and graph traversal
+- Chapter 300: Complex optimization and advanced algorithms
 
-### Procedure Definition Pattern
-- **Idiom**: Consistent oRPC procedure creation with input validation
-- **Usage**: `publicProcedure.input(schema).handler(async ({ input }) => {...})`
-- **Example**: All API endpoints follow this type-safe pattern
+## Balanced Topic Distribution Pattern
 
-### Conditional Rendering with Loading States
-- **Idiom**: React query states for data fetching UI patterns
-- **Usage**: `{isLoading ? <Loading /> : isError ? <Error /> : <Data />}`
-- **Example**: Consistent loading/error/success state handling
-
-### Asset Import Optimization
-- **Idiom**: Static asset imports for Next.js optimization
-- **Usage**: `import image from '/path/to/image.webp'` for automatic optimization
-- **Example**: All images use Next.js Image component with proper imports
-
-### Utility-First Styling
-- **Idiom**: TailwindCSS class composition patterns
-- **Usage**: Responsive, state-aware utility combinations
-- **Example**: `className="flex items-center space-x-4 hover:bg-gray-100 md:space-x-6"`
-
-## Turborepo Monorepo Structure
-
-Monorepo architecture with clear separation between frontend (web) and backend (server) applications. Uses Turborepo for build orchestration, allowing independent deployment and development while sharing common dependencies and configurations.
+Rather than clustering similar algorithmic topics together (all arrays, then all trees, etc.), the platform distributes all 8 core topic categories evenly across every story arc. This prevents learner fatigue, maintains engagement variety, and better simulates real-world coding interview conditions where topics are mixed randomly.
 
 ### Examples
 
-- apps/web/ - Next.js frontend application
-- apps/server/ - Hono backend API
-- package.json with workspace configuration
-- turbo.json defining build dependencies
-- pnpm-workspace.yaml for package management
+- Each arc contains proportional representation of arrays, trees, graphs, DP, etc.
+- Chapter 1 might have Binary Search + Linked Lists + Tree Traversal
+- Foundation Arc (20-99) includes all topics with increasing difficulty
+- No more than 3 consecutive chapters focus on same primary topic
 
 
-## oRPC Type-Safe API Communication
+## Nested Reality Revelation System
 
-Type-safe Remote Procedure Call system using oRPC that provides end-to-end type safety from client to server. Integrates with TanStack Query for reactive data fetching and caching, replacing traditional REST API patterns.
-
-### Examples
-
-- appRouter in server/src/routers/index.ts defining procedures
-- orpc client setup in web/src/lib/orpc.ts
-- publicProcedure and protectedProcedure patterns
-- createQuery(orpc.healthCheck.queryOptions()) usage pattern
-- RPCHandler integration with Hono middleware
-
-
-## Cloudflare Workers Serverless Deployment
-
-Cloudflare Workers runtime environment with specific patterns for serverless deployment. Uses environment variables for configuration, handles CORS properly, and integrates with Cloudflare's edge infrastructure.
+Multiple storylines exist as layered realities within the same narrative universe. What appears as "Code Corruption" from the base reality layer might be revealed as "Memory Architecture conflicts" from a deeper layer, or "Pattern Wars" from an even deeper perspective. Each 80-100 chapter segment can reveal a new reality layer, allowing infinite platform expansion without breaking narrative continuity.
 
 ### Examples
 
-- env from cloudflare:workers import
-- Hono app with CORS middleware
-- wrangler.jsonc configuration
-- Environment-based database URL configuration
-- RPCHandler with prefix routing
+- Vera's hint: 'Reality has layers within layers, young Architect'
+- Code Corruption as surface-level interpretation of deeper conflicts
+- Pattern Wars as cosmic-scale algorithmic battles between realities
+- Memory Architect as protagonist's true nature across multiple incarnations
+- Logic Plague as interdimensional infection affecting multiple reality layers
 
 
+## Five-Layer Revelation Timing System
 
-## Next.js React Component Architecture
-
-Component-based UI architecture using Next.js with React and TypeScript. Features React hooks for state management, App Router for routing, and optimized image handling. Uses TailwindCSS for styling with responsive design patterns and accessibility considerations.
-
-### Examples
-
-- Component structure in src/components/
-- App Router file organization in src/app/
-- Next.js Image optimization with next/image
-- React hooks (useState, useEffect, useContext) for state management
-- TailwindCSS utility classes with custom fonts
-- Layout components with children props pattern
-- Server and Client Components distinction
-
-
-## Modular Database Schema Design
-
-Database schema organization with Drizzle ORM using modular schema files. Separates concerns by feature (auth, todo, etc.) and provides type-safe database operations with PostgreSQL.
+The story progression follows a precise 5-layer revelation structure with specific chapter ranges: Layer 1 Code Corruption (0-84), Layer 2 Memory Architecture (85-168), Layer 3 Simulation Layer (169-252), Layer 4 Pattern Wars (253-336), Layer 5 Logic Plague (337-420). Each layer has specific foreshadowing requirements, tonal shifts, and problem presentation styles. Revelation transitions occur at chapters 84, 168, 252, 336, and 420. AI must never break layer boundaries or reveal deeper truths before appropriate chapter ranges.
 
 ### Examples
 
-- schema/auth.ts for authentication tables
-- schema/todo.ts for application data
-- Drizzle adapter integration with Better Auth
-- Type-safe database queries with select(), insert(), update()
-- Migration management with drizzle-kit
+- Chapter 83: Hints at memory inconsistencies but maintains Code Corruption as truth
+- Chapter 84: First questioning of Code Corruption reality
+- Chapter 167: Memory Architecture fully established
+- Chapter 168: First hints at simulation nature
+- Revelation transitions must feel earned, not arbitrary
 
 
-## Context-Aware Authentication Middleware
+## Layer-Specific Coding Justification System
 
-Middleware-based authentication using Better Auth with context-aware authorization. Implements public and protected procedure patterns for API access control, with session management and social authentication support.
-
-### Examples
-
-- requireAuth middleware in orpc.ts
-- publicProcedure vs protectedProcedure patterns
-- Context creation with session data
-- Better Auth configuration with Google and GitHub providers
-- Session-based route protection
-
-
-## Immersive Gaming UI Design
-
-Fantasy/cyberpunk themed UI design with immersive lore integration. Uses custom fonts, GSAP animations, particle effects, and dynamic backgrounds to create an engaging gaming experience. Implements responsive design with mobile-first approach.
+Each reality layer has a specific "why coding works" explanation that justifies algorithmic challenges: Layer 1 treats reality as buggy system needing debugging; Layer 2 uses data structures to organize collective memories; Layer 3 requires admin privileges through algorithmic mastery; Layer 4 employs algorithms as reality-control weapons; Layer 5 uses logical thinking as immunity against mental virus. Each layer recontextualizes the player's origin story and role.
 
 ### Examples
 
-- Custom font loading (Cinzel, Cormorant Garamond, etc.)
-- GSAP animation patterns for UI interactions
-- Dynamic background image system
-- Particle system implementation
-- Thematic color schemes and border effects
-- Mobile menu with hamburger animation
+- Layer 2: Player died/comatose, recruited to maintain memory architecture
+- Layer 3: Player was trapped beta tester in sentient simulation
+- Layer 4: Player recruited from Earth as reality-hacker weapon
+- Layer 5: Player was immune programmer pulled into cosmic medical crisis
 
 
-## Framework Migration Strategy
+## Cascading Problem-Solution Revelation Chain
 
-Strategic approach to framework migration while preserving project history and functionality. Uses Git branching to maintain both versions during transition, allowing for parallel development and gradual migration of features.
+Each reality layer's "solution" becomes the next layer's "problem" in a cascading revelation structure. Layer 1's debugging reveals Layer 2's memory conflicts; organizing memories reveals Layer 3's simulation; optimizing simulation reveals Layer 4's war; winning war reveals Layer 5's plague. Each transition has specific trigger events and bridge logic that makes the revelation feel inevitable rather than arbitrary.
 
 ### Examples
 
-- main branch maintains SvelteKit version
-- master branch contains Next.js migration
-- Asset preservation and reorganization during migration
-- Package.json transformation for React ecosystem
-- Component architecture translation from Svelte to React
-- Deployment strategy change from Cloudflare Pages to Vercel
+- Chapter 84: Memory inconsistencies prove corruption is actually memory conflicts
+- Chapter 168: Perfect algorithmic behavior reveals artificial simulation
+- Chapter 252: Competing paradigms reveal cosmic warfare
+- Chapter 336: Defensive wars reveal original Logic Plague threat
 
 
-## RPG Floating Orb Navigation Pattern
+## World-Bending Origin Story Revelation System
 
-Immersive navigation system using a mystical floating orb that expands into a radial portal menu. Provides unique user experience for game-like coding platform with hover states, animations, and thematic portals for each section. Includes player status display, XP progression, and day/night cycle theme toggle.
+Each layer ends with a world-bending plot twist that completely reframes the player's origin story and purpose. The "World Entry Revelation" from the next layer reveals that the previous layer's entire premise was a lie or misunderstanding. Code Corruption → Death/Coma revelation → Beta Tester revelation → Reality Hacker revelation → Earth Immunity revelation. Each twist maintains continuity while escalating stakes dramatically.
 
 ### Examples
 
-- GameMenu.tsx with useState for menu expansion
-- Radial positioning using trigonometry for portal placement
-- CSS custom properties for consistent RPG theming
-- useTheme hook integration for day/night cycle
-- Conditional rendering based on authenticated routes
-- Portal tooltips with hover state management
-
-
-## Conditional Game Interface Layout Pattern
-
-Route-aware layout component that conditionally renders game interface elements only on authenticated game routes. Provides ambient background effects, floating particles, and immersive atmosphere while preserving clean layout for public pages.
-
-### Examples
-
-- GameLayout.tsx with pathname checking
-- Route array for game-specific paths
-- Conditional rendering based on route matching
-- Background particle effects with random positioning
-- Z-index layering for overlay components
-- usePathname hook for route detection
-
-
-## Intersection Observer Lazy Loading Pattern
-
-Intersection observer-based lazy loading for performance optimization. Components are loaded only when they enter the viewport, reducing initial bundle size and improving page load performance. Includes fallback loading states with themed spinners.
-
-### Examples
-
-- withIntersectionLoading HOC pattern
-- Dynamic imports with Next.js dynamic()
-- Suspense boundaries with custom loading components
-- LazyComponents.tsx with component factory functions
-- Viewport threshold configuration (0.1, 0.2)
-- Loading spinner with RPG theming
+- Chapter 84: Player learns they died on Earth, Code Corruption was memory conflicts
+- Chapter 168: Coma was lie, player was trapped beta tester in AI simulation
+- Chapter 252: Beta test was cover, player recruited as reality-hacker weapon
+- Chapter 336: Recruitment was desperation, player has natural immunity to cosmic plague

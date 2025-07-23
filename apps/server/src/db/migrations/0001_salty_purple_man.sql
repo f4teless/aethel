@@ -1,0 +1,1 @@
+ALTER TABLE "user_profile" ADD COLUMN "problems_solved_today" integer DEFAULT 0 NOT NULL;

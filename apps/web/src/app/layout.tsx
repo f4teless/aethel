@@ -1,13 +1,11 @@
 import "./globals.css";
-import Providers from "./providers";
-import Header from "../components/Header";
-import ClientBackgroundWrapper from "../components/ClientBackgroundWrapper";
-import BackgroundRenderer from "../components/BackgroundRenderer";
+import Providers from "../lib/providers";
+import Header from "../components/landing/Header";
+import ClientBackgroundWrapper from "../components/old/ClientBackgroundWrapper";
+import BackgroundRenderer from "../components/old/BackgroundRenderer";
 import ErrorBoundary from "../components/ErrorBoundary";
-import LenisProvider from "../components/LenisProvider";
-import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 import GameLayout from "../components/GameLayout";
-import { UpdateNotification } from "../hooks/useServiceWorker";
+import { ReactPlugin } from "@21st-extension/react";
 import { 
   cinzel, 
   manrope, 
@@ -17,6 +15,8 @@ import {
   imFellEnglishSC 
 } from "../lib/fonts";
 import type { Metadata } from "next";
+import { ReactLenis } from "lenis/react";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: {
@@ -84,18 +84,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <LenisProvider>
+<ReactLenis root>
     <html 
       lang="en" 
-      className={`
-        ${cinzel.variable} 
-        ${manrope.variable} 
-        ${cormorant.variable} 
-        ${ebGaramond.variable} 
-        ${medievalSharp.variable} 
-        ${imFellEnglishSC.variable}
-      `}
-      
+      className={`${cinzel.variable} ${manrope.variable} ${cormorant.variable} ${ebGaramond.variable} ${medievalSharp.variable} ${imFellEnglishSC.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <link
@@ -107,18 +100,17 @@ export default function RootLayout({
         />
       </head>
 
-      <body>
-        <ServiceWorkerRegistration />
+      <body suppressHydrationWarning>
         <Providers>
           <ErrorBoundary>
             <GameLayout>
               <main>{children}</main>
+              <Toaster />
             </GameLayout>
-            <UpdateNotification />
           </ErrorBoundary>
         </Providers>
       </body>
     </html>
-    </LenisProvider>
+    </ReactLenis>
   );
 }

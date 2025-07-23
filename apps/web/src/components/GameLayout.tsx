@@ -2,7 +2,19 @@
 
 import { usePathname } from 'next/navigation';
 import GameMenu from './GameMenu';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+
+interface GameLayoutProps {
+  children: ReactNode;
+}
+
+interface Particle {
+  id: number;
+  left: string;
+  top: string;
+  animationDelay: string;
+  animationDuration: string;
+}
 
 interface GameLayoutProps {
   children: ReactNode;
@@ -12,17 +24,32 @@ interface GameLayoutProps {
 const gameRoutes = [
   '/dashboard',
   '/dungeons', 
+  '/pvp',
   '/quests',
   '/skilltree',
   '/leaderboard',
-  '/profile'
+  '/profile',
+  '/community'
 ];
 
 export default function GameLayout({ children }: GameLayoutProps) {
   const pathname = usePathname();
+  const [particles, setParticles] = useState<Particle[]>([]);
   
   // Check if current route should have game interface
   const isGameRoute = gameRoutes.some(route => pathname.startsWith(route));
+
+  // Generate particles on the client side only to avoid hydration mismatch
+  useEffect(() => {
+    const generatedParticles: Particle[] = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 5}s`,
+      animationDuration: `${2 + Math.random() * 3}s`,
+    }));
+    setParticles(generatedParticles);
+  }, []);
   
   if (!isGameRoute) {
     return <>{children}</>;
@@ -40,16 +67,16 @@ export default function GameLayout({ children }: GameLayoutProps) {
       
       {/* Ambient Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
+        {/* Floating Particles - Client-side only */}
+        {particles.map((particle) => (
           <div
-            key={i}
+            key={particle.id}
             className="absolute w-1 h-1 bg-[var(--accent)]/30 rounded-full animate-ping"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
+              left: particle.left,
+              top: particle.top,
+              animationDelay: particle.animationDelay,
+              animationDuration: particle.animationDuration,
             }}
           />
         ))}

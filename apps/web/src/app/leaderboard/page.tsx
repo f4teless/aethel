@@ -1,107 +1,221 @@
-import AuthGuard from "@/components/AuthGuard";
+'use client';
+
+import { useState, useEffect } from 'react';
+import Header from '@/components/landing/Header';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+
+const nameParts1 = ['Void', 'Syntax', 'Hex', 'Data', 'Null', 'Quantum', 'Glitch', 'Recursia', 'Binary', 'Vector', 'Chrono', 'Cipher', 'Byte'];
+const nameParts2 = ['Walker', 'Scribe', 'Mancer', 'Shift', 'Runner', 'Heart', 'Blade', 'Forge', 'Savant', 'Weaver', 'Storm', 'Wraith', 'Mind'];
+const classes = ['Array Knight', 'Dynamic Mage', 'Graph Assassin', 'Greedy Ronin', 'Bit Sage'];
+
+function seededRandom(seed: number) {
+  let x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+function generateName(seed: number) {
+  const i = Math.floor(seededRandom(seed) * nameParts1.length);
+  const j = Math.floor(seededRandom(seed + 1) * nameParts2.length);
+  return nameParts1[i] + nameParts2[j];
+}
+
+function generateRandomClass(seed: number) {
+  const idx = Math.floor(seededRandom(seed + 2) * classes.length);
+  return classes[idx];
+}
+
+function generateLeaderboard(count: number, scoreFn: (i: number) => number, classType: 'Varies' | string, offset: number = 0) {
+  return Array.from({ length: count }, (_, i) => ({
+    name: generateName(i + offset),
+    class: classType === 'Varies' ? generateRandomClass(i + offset) : classType,
+    score: scoreFn(i),
+  }));
+}
+
+const leaderboards = {
+  pvp: generateLeaderboard(120, i => 3200 - i * 15 - Math.floor(seededRandom(i) * 10), 'Varies'),
+  class: {
+    'array-knight': generateLeaderboard(75, i => 820 - i * 9 - Math.floor(seededRandom(i) * 5), 'Array Knight', 1000),
+    'dynamic-mage': generateLeaderboard(55, i => 850 - i * 10 - Math.floor(seededRandom(i) * 5), 'Dynamic Mage', 2000),
+    'graph-assassin': generateLeaderboard(60, i => 840 - i * 11 - Math.floor(seededRandom(i) * 5), 'Graph Assassin', 3000),
+    'greedy-ronin': generateLeaderboard(68, i => 810 - i * 8 - Math.floor(seededRandom(i) * 5), 'Greedy Ronin', 4000),
+    'bit-sage': generateLeaderboard(45, i => 880 - i * 12 - Math.floor(seededRandom(i) * 5), 'Bit Sage', 5000),
+  }
+};
+
+type ActiveTab = 'pvp' | 'class';
+type ActiveClassTab = 'array-knight' | 'dynamic-mage' | 'graph-assassin' | 'greedy-ronin' | 'bit-sage';
 
 export default function LeaderboardPage() {
+   const [activeTab, setActiveTab] = useState<ActiveTab>('pvp');
+  const [activeClassTab, setActiveClassTab] = useState<ActiveClassTab>('array-knight');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 15;
+
+  const activeLeaderboardData = activeTab === 'pvp' 
+    ? leaderboards.pvp 
+    : leaderboards.class[activeClassTab];
+
+  const totalPages = Math.ceil(activeLeaderboardData.length / itemsPerPage);
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const paginatedData = activeLeaderboardData.slice(start, end);
+
+  const changeTab = (tab: ActiveTab) => {
+    setActiveTab(tab);
+    setCurrentPage(1);
+  };
+
+  const changeClassTab = (classTab: ActiveClassTab) => {
+    setActiveClassTab(classTab);
+    setCurrentPage(1);
+  };
+
+  const previousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
-    <AuthGuard>
-      <div className="min-h-screen p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center space-y-6 mb-12">
-            <h1 className="text-4xl font-bold font-cinzel text-[var(--foreground)]">
-              🏆 Hall of Honor
-            </h1>
-            <p className="text-xl text-[var(--muted-foreground)]">
-              The greatest architects of our realm
-            </p>
-          </div>
-          
-          <div className="space-y-4">
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <div className="container mx-auto px-4 sm:px-6 py-16 md:py-24 text-foreground">
+      <header className="text-center max-w-4xl mx-auto mb-12">
+        <h1 className="font-cinzel text-4xl md:text-6xl font-bold drop-shadow-lg">Hall of Honor</h1>
+        <p className="font-cormorant italic text-xl md:text-2xl text-muted-foreground mt-4">The Chronicler's official ledger of Aethel's most powerful Architects. Updated every cycle.</p>
+      </header>
+
+      <div className="bg-background/40 backdrop-blur-md rounded-lg border border-border p-4 sm:p-6 shadow-2xl">
+        {/* Top Navigation Tabs */}
+        <nav className="flex items-center space-x-6 border-b border-border mb-4">
+          <button
+            onClick={() => changeTab('pvp')}
+            className={`py-3 font-cinzel text-lg tracking-wider transition border-b-2 cursor-pointer ${
+              activeTab === 'pvp' ? 'text-foreground border-primary' : 'text-muted-foreground border-transparent'
+            }`}
+          >
+            PvP Arena
+          </button>
+
+          <button
+            onClick={() => changeTab('class')}
+            className={`py-3 font-cinzel text-lg tracking-wider transition border-b-2 cursor-pointer ${
+              activeTab === 'class' ? 'text-foreground border-primary' : 'text-muted-foreground border-transparent'
+            }`}
+          >
+            Class Mastery
+          </button>
+        </nav>
+
+        {/* Class Sub-Tabs */}
+        {activeTab === 'class' && (
+          <nav className="flex items-center gap-x-4 gap-y-2 flex-wrap mb-6 text-sm">
             {[
-              { rank: 1, name: "Master Codewarden", level: 42, xp: 15847, title: "Legendary Architect", streak: 127 },
-              { rank: 2, name: "Syntax Sage", level: 38, xp: 13204, title: "Elite Developer", streak: 89 },
-              { rank: 3, name: "Logic Lord", level: 35, xp: 12156, title: "Senior Engineer", streak: 73 },
-              { rank: 4, name: "Algorithm Adept", level: 32, xp: 10943, title: "Full Stack Mage", streak: 56 },
-              { rank: 5, name: "Debug Deity", level: 29, xp: 9876, title: "Bug Slayer", streak: 45 },
-              { rank: 6, name: "Refactor Ranger", level: 27, xp: 8954, title: "Code Cleaner", streak: 34 },
-              { rank: 7, name: "Test Temple Guardian", level: 25, xp: 8123, title: "Quality Keeper", streak: 28 },
-              { rank: 8, name: "API Architect", level: 23, xp: 7456, title: "Interface Designer", streak: 21 },
-              { rank: 9, name: "Database Druid", level: 21, xp: 6789, title: "Data Whisperer", streak: 15 },
-              { rank: 10, name: "Frontend Phoenix", level: 19, xp: 6123, title: "UI Enchanter", streak: 12 },
-            ].map((player, index) => (
-              <div 
-                key={player.rank}
-                className={`
-                  relative p-6 rounded-lg border-2 transition-all hover:bg-[var(--muted)]
-                  ${player.rank <= 3 
-                    ? 'bg-gradient-to-r from-[var(--accent)]/10 to-[var(--primary)]/10 border-[var(--accent)]' 
-                    : 'bg-[var(--card)] border-[var(--border)]'
-                  }
-                `}
+              { id: 'array-knight', name: 'Array Knight' },
+              { id: 'dynamic-mage', name: 'Dynamic Mage' },
+              { id: 'graph-assassin', name: 'Graph Assassin' },
+              { id: 'greedy-ronin', name: 'Greedy Ronin' },
+              { id: 'bit-sage', name: 'Bit Sage' }
+            ].map((cls) => (
+              <button
+                key={cls.id}
+                onClick={() => changeClassTab(cls.id as ActiveClassTab)}
+                className={`px-3 py-1 rounded-full transition cursor-pointer ${
+                  activeClassTab === cls.id
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted hover:bg-muted/80 text-muted-foreground'
+                }`}
               >
-                <div className="flex items-center gap-6">
-                  {/* Rank */}
-                  <div className={`
-                    flex items-center justify-center w-12 h-12 rounded-full font-bold text-lg
-                    ${player.rank === 1 ? 'bg-yellow-500 text-black' :
-                      player.rank === 2 ? 'bg-gray-400 text-black' :
-                      player.rank === 3 ? 'bg-amber-600 text-white' :
-                      'bg-[var(--muted)] text-[var(--foreground)]'
-                    }
-                  `}>
-                    {player.rank === 1 ? '👑' : 
-                     player.rank === 2 ? '🥈' :
-                     player.rank === 3 ? '🥉' :
-                     `#${player.rank}`}
-                  </div>
-
-                  {/* Player Info */}
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-bold text-[var(--foreground)] text-lg">{player.name}</h3>
-                      <span className="px-2 py-1 bg-[var(--accent)]/20 text-[var(--accent)] text-sm rounded">
-                        {player.title}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-6 text-sm text-[var(--muted-foreground)]">
-                      <span>Level {player.level}</span>
-                      <span>{player.xp.toLocaleString()} XP</span>
-                      <span>🔥 {player.streak} day streak</span>
-                    </div>
-                  </div>
-
-                  {/* Level Badge */}
-                  <div className="text-right">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--primary)] flex items-center justify-center mb-2">
-                      <span className="text-white font-bold text-lg">{player.level}</span>
-                    </div>
-                    <div className="text-xs text-[var(--muted-foreground)]">Level</div>
-                  </div>
-                </div>
-
-                {/* Special Effects for Top 3 */}
-                {player.rank <= 3 && (
-                  <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[var(--accent)] flex items-center justify-center animate-pulse">
-                    <span className="text-xs">✨</span>
-                  </div>
-                )}
-              </div>
+                {cls.name}
+              </button>
             ))}
+          </nav>
+        )}
+
+        <div className="overflow-hidden">
+          <div className="grid grid-cols-12 gap-4 px-4 py-2 text-sm font-cinzel tracking-wider text-muted-foreground border-b border-border">
+            <div className="col-span-1">Rank</div>
+            <div className="col-span-5">Architect</div>
+            <div className="col-span-3 hidden sm:block">Class</div>
+            <div className="col-span-3 text-right">{activeTab === 'pvp' ? 'Combat Rating' : 'Corruptions Purged'}</div>
           </div>
 
-          {/* Your Rank */}
-          <div className="mt-12 p-6 bg-[var(--card)] border-2 border-[var(--accent)] rounded-lg">
-            <div className="text-center">
-              <h3 className="text-lg font-bold text-[var(--foreground)] mb-2">Your Current Rank</h3>
-              <div className="flex items-center justify-center gap-4">
-                <div className="text-3xl font-bold text-[var(--accent)]">#47</div>
-                <div className="text-[var(--muted-foreground)]">
-                  <div>Level 12 • 2,847 XP</div>
-                  <div>🔥 7 day streak</div>
+          <div className="space-y-2 mt-2 animate-fade-in">
+            {paginatedData.map((player, i) => {
+              const rank = (currentPage - 1) * itemsPerPage + i + 1;
+              return (
+                <div key={`${player.name}-${rank}`} className="grid grid-cols-12 gap-4 items-center bg-card/50 p-3 rounded-md border border-transparent hover:border-border transition-all text-base">
+                  <div className={`col-span-1 font-cinzel text-xl ${
+                    rank === 1 ? 'text-yellow-400' :
+                    rank === 2 ? 'text-slate-300' :
+                    rank === 3 ? 'text-amber-500' : ''
+                  }`}>
+                    {rank}
+                  </div>
+                  <div className="col-span-5 font-bold truncate text-foreground">{player.name}</div>
+                  <div className="col-span-3 hidden sm:block text-muted-foreground">{player.class}</div>
+                  <div className={`col-span-3 text-right font-mono text-lg ${
+                    activeTab === 'pvp' ? 'text-primary' : 'text-chart-2'
+                  }`}>
+                    {player.score}
+                  </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
+
+        <div className="flex justify-between items-center mt-6 text-sm">
+            <Button 
+              onClick={previousPage} 
+              disabled={currentPage === 1} 
+              variant="outline"
+            >
+              Previous
+            </Button>
+            <span className="text-muted-foreground">Page {currentPage} of {totalPages}</span>
+            <Button 
+              onClick={nextPage} 
+              disabled={currentPage === totalPages} 
+              variant="outline"
+            >
+              Next
+            </Button>
+        </div>
       </div>
-    </AuthGuard>
+
+      <Card className="mt-12 border-primary">
+        <CardHeader>
+          <CardTitle>Your Position</CardTitle>
+          <CardDescription>Here's how you stack up against the competition.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-around text-center">
+            <div>
+              <p className="text-3xl font-bold text-primary">#1,284</p>
+              <p className="text-sm text-muted-foreground">Global PvP Rank</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-primary">#98</p>
+              <p className="text-sm text-muted-foreground">Dynamic Mage Rank</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-primary">🔥 7</p>
+              <p className="text-sm text-muted-foreground">Day Streak</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+    </div>
   );
 }

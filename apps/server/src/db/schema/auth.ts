@@ -36,7 +36,6 @@ export const account = pgTable("account", {
 	accessTokenExpiresAt: timestamp("access_token_expires_at"),
 	refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
 	scope: text("scope"),
-	password: text("password"),
 	createdAt: timestamp("created_at").notNull(),
 	updatedAt: timestamp("updated_at").notNull(),
 });
@@ -49,3 +48,8 @@ export const verification = pgTable("verification", {
 	createdAt: timestamp("created_at"),
 	updatedAt: timestamp("updated_at"),
 });
+
+export type User = typeof user.$inferSelect;
+export type Session = typeof session.$inferSelect;
+export type Account = typeof account.$inferSelect;
+export type Verification = typeof verification.$inferSelect;

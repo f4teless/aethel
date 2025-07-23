@@ -1,4 +1,6 @@
 node_modules
 .turbo
 apps/server/wrangler.jsonc
-notion
+ai
+.vscode
+BACKEND_IMPLEMENTATION.md

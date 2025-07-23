@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { errorImages, getRandomItem } from "../lib/constants";
-import ClientBackgroundWrapper from "@/components/ClientBackgroundWrapper";
+import ClientBackgroundWrapper from "@/components/old/ClientBackgroundWrapper";
 
 export default function Error({
   error,
